@@ -1,4 +1,4 @@
-# ProjectHandPlus
+﻿# ProjectHandPlus
 A online co-op game made with Unity Engine.
 
 
@@ -11,4 +11,21 @@ A online co-op game made with Unity Engine.
 #### 02 章朝哲
 
 13588786666
+
+
+### 03 廖青山
+
+15306574291
+
+### 04 王梓涵
+
+18321703282
+=======
+#### 05 应尚威
+
+13626747263
+
+### 06 孙宋源
+
+Undeadtoad
 
