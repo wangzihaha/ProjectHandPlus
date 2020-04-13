@@ -13,6 +13,20 @@ A online co-op game made with Unity Engine.
 
 
 
+### 客户端文件组织形式（暂定）
+
+[ Scripts / ]存放一般（无法归入下列分类）的脚本
+
+[ Scripts / Protoc / ] 存放Protoc文件
+
+[ Scripts / Managers / ] 存放单例Manager，在PureMVC框架下应该不多
+
+[ Scripts / PureMVC / 需求A / … / ] 根据需求存放Proxy、Model、View、Meidator、Command等脚本，**如出现复用情况放在其中一处即可，最好在此处进行说明**
+
+需求A 复用 需求B xxx.cs 脚本
+
+
+
 ### PureMVC使用笔记【补充修正欢迎】
 
 #### **对应关系**
