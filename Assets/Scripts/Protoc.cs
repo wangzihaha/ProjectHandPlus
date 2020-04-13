@@ -32,14 +32,16 @@ namespace GameProto {
             "YXNwGAMgASgIEg4KBmF0dGFjaBgEIAEoCCKIAQoJQ2xpZW50TXNnEigKBHR5",
             "cGUYASABKA4yGi5HYW1lUHJvdG8uQ2xpZW50RXZlbnRDb2RlEgwKBG5hbWUY",
             "AiABKAkSEAoIcGFzc3dvcmQYAyABKAkSCgoCaWQYBCABKAUSJQoFaW5wdXQY",
-            "BSABKAsyFi5HYW1lUHJvdG8uUGxheWVySW5wdXQirQEKCVNlcnZlck1zZxIo",
-            "CgR0eXBlGAEgASgOMhouR2FtZVByb3RvLlNlcnZlckV2ZW50Q29kZRIMCgRj",
-            "b2RlGAIgASgFEgsKA2ZpZBgDIAEoBRILCgNzdHIYBCABKAkSJgoGaW5wdXRz",
-            "GAUgAygLMhYuR2FtZVByb3RvLlBsYXllcklucHV0EiYKBnN0YXRlcxgGIAMo",
-            "CzIWLkdhbWVQcm90by5QbGF5ZXJTdGF0ZSooCg9TZXJ2ZXJFdmVudENvZGUS",
-            "CAoERmFpbBAAEgsKB1N1Y2Nlc3MQAipNCg9DbGllbnRFdmVudENvZGUSCQoF",
-            "TG9nSW4QABIKCgZSZWdpc3QQARINCglFbnRlclJvb20QAhIICgRTeW5jEAMS",
-            "CgoGRm9sbG93EARiBnByb3RvMw=="));
+            "BSABKAsyFi5HYW1lUHJvdG8uUGxheWVySW5wdXQinwEKCVNlcnZlck1zZxIo",
+            "CgR0eXBlGAEgASgOMhouR2FtZVByb3RvLlNlcnZlckV2ZW50Q29kZRILCgNm",
+            "aWQYAiABKAUSCwoDc3RyGAMgASgJEiYKBmlucHV0cxgEIAMoCzIWLkdhbWVQ",
+            "cm90by5QbGF5ZXJJbnB1dBImCgZzdGF0ZXMYBSADKAsyFi5HYW1lUHJvdG8u",
+            "UGxheWVyU3RhdGUqgAEKD1NlcnZlckV2ZW50Q29kZRIQCgxMb2dJblN1Y2Nl",
+            "c3MQABITCg9SZWdpc3RlclN1Y2Nlc3MQARIUChBFbnRlclJvb21TdWNjZXNz",
+            "EAISCwoHRmFpbHVyZRADEhYKEkp1bXBUb0JhdHRsZVNlcnZlchAEEgsKB1My",
+            "Q3N5bmMQBSpQCg9DbGllbnRFdmVudENvZGUSCQoFTG9nSW4QABIKCgZSZWdp",
+            "c3QQARINCglFbnRlclJvb20QAhILCgdDMlNzeW5jEAMSCgoGRm9sbG93EARi",
+            "BnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::GameProto.ServerEventCode), typeof(global::GameProto.ClientEventCode), }, new pbr::GeneratedClrTypeInfo[] {
@@ -47,23 +49,33 @@ namespace GameProto {
             new pbr::GeneratedClrTypeInfo(typeof(global::GameProto.PlayerState), global::GameProto.PlayerState.Parser, new[]{ "Fid", "Name", "Yaw", "Pos", "State" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GameProto.PlayerInput), global::GameProto.PlayerInput.Parser, new[]{ "Name", "Torque", "Grasp", "Attach" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GameProto.ClientMsg), global::GameProto.ClientMsg.Parser, new[]{ "Type", "Name", "Password", "Id", "Input" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::GameProto.ServerMsg), global::GameProto.ServerMsg.Parser, new[]{ "Type", "Code", "Fid", "Str", "Inputs", "States" }, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::GameProto.ServerMsg), global::GameProto.ServerMsg.Parser, new[]{ "Type", "Fid", "Str", "Inputs", "States" }, null, null, null)
           }));
     }
     #endregion
 
   }
   #region Enums
+  /// <summary>
+  ///S2C
+  /// </summary>
   public enum ServerEventCode {
-    [pbr::OriginalName("Fail")] Fail = 0,
-    [pbr::OriginalName("Success")] Success = 2,
+    [pbr::OriginalName("LogInSuccess")] LogInSuccess = 0,
+    [pbr::OriginalName("RegisterSuccess")] RegisterSuccess = 1,
+    [pbr::OriginalName("EnterRoomSuccess")] EnterRoomSuccess = 2,
+    [pbr::OriginalName("Failure")] Failure = 3,
+    [pbr::OriginalName("JumpToBattleServer")] JumpToBattleServer = 4,
+    [pbr::OriginalName("S2Csync")] S2Csync = 5,
   }
 
+  /// <summary>
+  ///C2S
+  /// </summary>
   public enum ClientEventCode {
     [pbr::OriginalName("LogIn")] LogIn = 0,
     [pbr::OriginalName("Regist")] Regist = 1,
     [pbr::OriginalName("EnterRoom")] EnterRoom = 2,
-    [pbr::OriginalName("Sync")] Sync = 3,
+    [pbr::OriginalName("C2Ssync")] C2Ssync = 3,
     [pbr::OriginalName("Follow")] Follow = 4,
   }
 
@@ -723,11 +735,11 @@ namespace GameProto {
 
   /// <summary>
   ///客户端数据包
-  ///登录：type=0,name,password
-  ///注册：type=1,name,password
-  ///进房间：type=2,name,id=room_id
-  ///同步：type=3,input
-  ///追帧：type=4,name,id=fid
+  ///登录：type=LogIn,name,password
+  ///注册：type=Regist,name,password
+  ///进房间：type=EnterRoom,name,id=room_id
+  ///同步：type=C2Ssync,input
+  ///追帧：type=Follow,name,id=fid
   /// </summary>
   public sealed partial class ClientMsg : pb::IMessage<ClientMsg> {
     private static readonly pb::MessageParser<ClientMsg> _parser = new pb::MessageParser<ClientMsg>(() => new ClientMsg());
@@ -978,11 +990,12 @@ namespace GameProto {
 
   /// <summary>
   ///服务器数据包
-  ///登录成功：code=0,str=ip:port
-  ///注册成功：code=0
-  ///进房间成功：code=0,fid=房间人数
-  ///登录，注册，进房间失败：code=1,str
-  ///同步：code=2,fid,inputs,(states?)
+  ///登录成功：type = LogInSuccess
+  ///注册成功：type = RegistSuccess
+  ///进房间成功：type = EnterRoomSuccess,fid=房间人数
+  ///登录，注册，进房间失败：type=Failure,str
+  ///跳转服务器: type=JumpToBattleServer,str=ip:port
+  ///同步：type = S2Csync,fid,inputs,(states?)
   /// </summary>
   public sealed partial class ServerMsg : pb::IMessage<ServerMsg> {
     private static readonly pb::MessageParser<ServerMsg> _parser = new pb::MessageParser<ServerMsg>(() => new ServerMsg());
@@ -1010,7 +1023,6 @@ namespace GameProto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public ServerMsg(ServerMsg other) : this() {
       type_ = other.type_;
-      code_ = other.code_;
       fid_ = other.fid_;
       str_ = other.str_;
       inputs_ = other.inputs_.Clone();
@@ -1034,19 +1046,8 @@ namespace GameProto {
       }
     }
 
-    /// <summary>Field number for the "code" field.</summary>
-    public const int CodeFieldNumber = 2;
-    private int code_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public int Code {
-      get { return code_; }
-      set {
-        code_ = value;
-      }
-    }
-
     /// <summary>Field number for the "fid" field.</summary>
-    public const int FidFieldNumber = 3;
+    public const int FidFieldNumber = 2;
     private int fid_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int Fid {
@@ -1057,7 +1058,7 @@ namespace GameProto {
     }
 
     /// <summary>Field number for the "str" field.</summary>
-    public const int StrFieldNumber = 4;
+    public const int StrFieldNumber = 3;
     private string str_ = "";
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public string Str {
@@ -1068,9 +1069,9 @@ namespace GameProto {
     }
 
     /// <summary>Field number for the "inputs" field.</summary>
-    public const int InputsFieldNumber = 5;
+    public const int InputsFieldNumber = 4;
     private static readonly pb::FieldCodec<global::GameProto.PlayerInput> _repeated_inputs_codec
-        = pb::FieldCodec.ForMessage(42, global::GameProto.PlayerInput.Parser);
+        = pb::FieldCodec.ForMessage(34, global::GameProto.PlayerInput.Parser);
     private readonly pbc::RepeatedField<global::GameProto.PlayerInput> inputs_ = new pbc::RepeatedField<global::GameProto.PlayerInput>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public pbc::RepeatedField<global::GameProto.PlayerInput> Inputs {
@@ -1078,9 +1079,9 @@ namespace GameProto {
     }
 
     /// <summary>Field number for the "states" field.</summary>
-    public const int StatesFieldNumber = 6;
+    public const int StatesFieldNumber = 5;
     private static readonly pb::FieldCodec<global::GameProto.PlayerState> _repeated_states_codec
-        = pb::FieldCodec.ForMessage(50, global::GameProto.PlayerState.Parser);
+        = pb::FieldCodec.ForMessage(42, global::GameProto.PlayerState.Parser);
     private readonly pbc::RepeatedField<global::GameProto.PlayerState> states_ = new pbc::RepeatedField<global::GameProto.PlayerState>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public pbc::RepeatedField<global::GameProto.PlayerState> States {
@@ -1101,7 +1102,6 @@ namespace GameProto {
         return true;
       }
       if (Type != other.Type) return false;
-      if (Code != other.Code) return false;
       if (Fid != other.Fid) return false;
       if (Str != other.Str) return false;
       if(!inputs_.Equals(other.inputs_)) return false;
@@ -1113,7 +1113,6 @@ namespace GameProto {
     public override int GetHashCode() {
       int hash = 1;
       if (Type != 0) hash ^= Type.GetHashCode();
-      if (Code != 0) hash ^= Code.GetHashCode();
       if (Fid != 0) hash ^= Fid.GetHashCode();
       if (Str.Length != 0) hash ^= Str.GetHashCode();
       hash ^= inputs_.GetHashCode();
@@ -1135,16 +1134,12 @@ namespace GameProto {
         output.WriteRawTag(8);
         output.WriteEnum((int) Type);
       }
-      if (Code != 0) {
-        output.WriteRawTag(16);
-        output.WriteInt32(Code);
-      }
       if (Fid != 0) {
-        output.WriteRawTag(24);
+        output.WriteRawTag(16);
         output.WriteInt32(Fid);
       }
       if (Str.Length != 0) {
-        output.WriteRawTag(34);
+        output.WriteRawTag(26);
         output.WriteString(Str);
       }
       inputs_.WriteTo(output, _repeated_inputs_codec);
@@ -1159,9 +1154,6 @@ namespace GameProto {
       int size = 0;
       if (Type != 0) {
         size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) Type);
-      }
-      if (Code != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeInt32Size(Code);
       }
       if (Fid != 0) {
         size += 1 + pb::CodedOutputStream.ComputeInt32Size(Fid);
@@ -1184,9 +1176,6 @@ namespace GameProto {
       }
       if (other.Type != 0) {
         Type = other.Type;
-      }
-      if (other.Code != 0) {
-        Code = other.Code;
       }
       if (other.Fid != 0) {
         Fid = other.Fid;
@@ -1212,22 +1201,18 @@ namespace GameProto {
             break;
           }
           case 16: {
-            Code = input.ReadInt32();
-            break;
-          }
-          case 24: {
             Fid = input.ReadInt32();
             break;
           }
-          case 34: {
+          case 26: {
             Str = input.ReadString();
             break;
           }
-          case 42: {
+          case 34: {
             inputs_.AddEntriesFrom(input, _repeated_inputs_codec);
             break;
           }
-          case 50: {
+          case 42: {
             states_.AddEntriesFrom(input, _repeated_states_codec);
             break;
           }
