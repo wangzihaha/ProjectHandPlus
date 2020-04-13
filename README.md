@@ -29,11 +29,11 @@ Facade(发音注意 /fə'sɑ:d/)：
 
 *业务逻辑：不完全被归为纯数据、纯UI的逻辑，或是两边都不沾边的逻辑
 
-
+&nbsp;
 
 #### 对应访问对象
 
-**Facade：**外部脚本可以通过Facade类的单例对象发送通知
+**Facade：** 外部脚本可以通过Facade类的单例对象发送通知
 
 YourFacade.GetInstance().SendNotification()
 
@@ -44,13 +44,13 @@ YourFacade.GetInstance().SendNotification()
 3. 注销组件 Facade.RemoveProxy() / Facade.RemoveMediator()  / Facade.RemoveCommand()
 4. 获取组件 Facade.RetrieveProxy() / Facade.RetrieveMediator()
 
-
+&nbsp;
 
 **Model、View、Controller：**
 
 Model、View为用户自己定义的数据结构，一般不需要定义方法，所以也不存在访问问题，Controller在目前看到的项目里就只是Command的概念集合，不存在脚本（不确定）
 
-
+&nbsp;
 
 **Proxy：**
 
@@ -60,9 +60,9 @@ Model、View为用户自己定义的数据结构，一般不需要定义方法�
 
 当存在多个Model（如多个玩家的数据）可以自己定义Model引用的数组，Proxy和Model的多对一关系是因为对同样的数据结构所采取的处理方式是相同的
 
-**注意事项：**尽量不获取Mediator。Model层不关心View层的表现，不应该在这里获取并使用Mediator，而是利用发送通知的方法进行View层更新
+**注意事项：** 尽量不获取Mediator。Model层不关心View层的表现，不应该在这里获取并使用Mediator，而是利用发送通知的方法进行View层更新
 
-
+&nbsp;
 
 **Mediator：**
 
@@ -72,9 +72,9 @@ Model、View为用户自己定义的数据结构，一般不需要定义方法�
 
 当存在多个View可以自己定义View引用的数组，跟上面一样的意思
 
-**注意事项：**可以读取Proxy，但不建议通过Proxy编辑Model层。此场景大多数情况下属于事务逻辑，建议发送通知后交给指定的Command来处理。
+**注意事项：** 可以读取Proxy，但不建议通过Proxy编辑Model层。此场景大多数情况下属于事务逻辑，建议发送通知后交给指定的Command来处理。
 
-
+&nbsp;
 
 **Command：**
 
@@ -82,7 +82,7 @@ Model、View为用户自己定义的数据结构，一般不需要定义方法�
 
 Command的生命周期相对较短，在通知到来时创建，所以Facade也没有对应的Retrieve方法
 
-
+&nbsp;
 
 #### 收发通知
 
