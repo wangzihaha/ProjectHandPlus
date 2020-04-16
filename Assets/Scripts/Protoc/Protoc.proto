@@ -14,7 +14,7 @@ enum ServerEventCode {
 	EnterRoomSuccess = 2;
 	Failure = 3;
 	JumpToBattleServer = 4;
-	S2Csync = 5;
+	S2CSync = 5;
 }
 
 //C2S
@@ -22,7 +22,7 @@ enum ClientEventCode {
 	LogIn = 0;
 	Regist = 1;
 	EnterRoom = 2;
-	C2Ssync = 3;
+	C2SSync = 3;
 	Follow = 4;
 }
 
@@ -47,7 +47,7 @@ message PlayerInput{
 //登录：type=LogIn,name,password
 //注册：type=Regist,name,password
 //进房间：type=EnterRoom,name,id=room_id
-//同步：type=C2Ssync,input
+//同步：type=Sync,input
 //追帧：type=Follow,name,id=fid
 message ClientMsg{
 	ClientEventCode type=1;
@@ -63,7 +63,7 @@ message ClientMsg{
 //进房间成功：type = EnterRoomSuccess,fid=房间人数
 //登录，注册，进房间失败：type=Failure,str
 //跳转服务器: type=JumpToBattleServer,str=ip:port
-//同步：type = S2Csync,fid,inputs,(states?)
+//同步：type = Sync,fid,inputs,(states?)
 message ServerMsg{
 	ServerEventCode type=1;
 	int32 fid=2;

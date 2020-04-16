@@ -39,8 +39,8 @@ namespace GameProto {
             "UGxheWVyU3RhdGUqgAEKD1NlcnZlckV2ZW50Q29kZRIQCgxMb2dJblN1Y2Nl",
             "c3MQABITCg9SZWdpc3RlclN1Y2Nlc3MQARIUChBFbnRlclJvb21TdWNjZXNz",
             "EAISCwoHRmFpbHVyZRADEhYKEkp1bXBUb0JhdHRsZVNlcnZlchAEEgsKB1My",
-            "Q3N5bmMQBSpQCg9DbGllbnRFdmVudENvZGUSCQoFTG9nSW4QABIKCgZSZWdp",
-            "c3QQARINCglFbnRlclJvb20QAhILCgdDMlNzeW5jEAMSCgoGRm9sbG93EARi",
+            "Q1N5bmMQBSpQCg9DbGllbnRFdmVudENvZGUSCQoFTG9nSW4QABIKCgZSZWdp",
+            "c3QQARINCglFbnRlclJvb20QAhILCgdDMlNTeW5jEAMSCgoGRm9sbG93EARi",
             "BnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
@@ -65,7 +65,7 @@ namespace GameProto {
     [pbr::OriginalName("EnterRoomSuccess")] EnterRoomSuccess = 2,
     [pbr::OriginalName("Failure")] Failure = 3,
     [pbr::OriginalName("JumpToBattleServer")] JumpToBattleServer = 4,
-    [pbr::OriginalName("S2Csync")] S2Csync = 5,
+    [pbr::OriginalName("S2CSync")] S2Csync = 5,
   }
 
   /// <summary>
@@ -75,7 +75,7 @@ namespace GameProto {
     [pbr::OriginalName("LogIn")] LogIn = 0,
     [pbr::OriginalName("Regist")] Regist = 1,
     [pbr::OriginalName("EnterRoom")] EnterRoom = 2,
-    [pbr::OriginalName("C2Ssync")] C2Ssync = 3,
+    [pbr::OriginalName("C2SSync")] C2Ssync = 3,
     [pbr::OriginalName("Follow")] Follow = 4,
   }
 
@@ -738,7 +738,7 @@ namespace GameProto {
   ///登录：type=LogIn,name,password
   ///注册：type=Regist,name,password
   ///进房间：type=EnterRoom,name,id=room_id
-  ///同步：type=C2Ssync,input
+  ///同步：type=Sync,input
   ///追帧：type=Follow,name,id=fid
   /// </summary>
   public sealed partial class ClientMsg : pb::IMessage<ClientMsg> {
@@ -995,7 +995,7 @@ namespace GameProto {
   ///进房间成功：type = EnterRoomSuccess,fid=房间人数
   ///登录，注册，进房间失败：type=Failure,str
   ///跳转服务器: type=JumpToBattleServer,str=ip:port
-  ///同步：type = S2Csync,fid,inputs,(states?)
+  ///同步：type = Sync,fid,inputs,(states?)
   /// </summary>
   public sealed partial class ServerMsg : pb::IMessage<ServerMsg> {
     private static readonly pb::MessageParser<ServerMsg> _parser = new pb::MessageParser<ServerMsg>(() => new ServerMsg());
