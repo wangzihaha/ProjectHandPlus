@@ -16,21 +16,25 @@ public class LoginPanelMediator : Mediator
     }
 
     private void OnClickLogin() {
-        string email = ((LoginPanelView)ViewComponent).emailText.text;
-        string password = ((LoginPanelView)ViewComponent).passwordText.text;
-        SendNotification(MyFacade.Login, email + "/" + password);
+        string _email = ((LoginPanelView)ViewComponent).emailText.text;
+        string _password = ((LoginPanelView)ViewComponent).passwordText.text;
+        UserDataModel message = new UserDataModel {
+            email = _email,
+            password = _password
+        };
+        SendNotification(MyFacade.Login, message);
     }
 
     public override IList<string> ListNotificationInterests() {
-        return new List<string>() { MyFacade.LoginSucceed, MyFacade.LoginFailed};
+        return new List<string>() { MyFacade.LoginSuccess, MyFacade.LoginFailure};
     }
 
     public override void HandleNotification(INotification notification) {
         switch (notification.Name) {
-            case MyFacade.LoginSucceed:
+            case MyFacade.LoginSuccess:
                 ((LoginPanelView)ViewComponent).messageText.text = "succeed";
                 break;
-            case MyFacade.LoginFailed:
+            case MyFacade.LoginFailure:
                 ((LoginPanelView)ViewComponent).messageText.text = "failed";
                 break;
             default:

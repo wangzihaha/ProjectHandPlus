@@ -129,6 +129,7 @@ public class NetworkManager : SingletonMonoBehaviour<NetworkManager>
         }
     }
 
+    // 从服务器接收信息的独立线程
     public void ReceiveMessage() {
         while (true) {
             if (!clientSocket.Connected) {
@@ -162,8 +163,14 @@ public class NetworkManager : SingletonMonoBehaviour<NetworkManager>
                     try {
                         ServerMsg msg = ServerMsg.Parser.ParseFrom(content);
                         Debug.LogFormat("Message Received: type={0} fid={1} str={2}", msg.Type, msg.Fid, msg.Str);
-                        // 根据不同的消息类型给Facade发送对应的通知，如果需要Facade以外的通讯考虑实现一个额外的事件系统
-                        //MyFacade.GetInstance().SendNotification(MyFacade.LoginSucceed);
+                        // 将消息存放到消息中心，在MyFacade脚本中监听感兴趣的消息并发送通知
+                        // 已测试不可通过MyFacde.GetInstance().SendNotification()发送信息，与ReceiveMesaage()作为独立线程有关
+                        ServerEventData serverEventData = new ServerEventData {
+                            code = msg.Type,
+                            data = msg
+                        };
+                        MessageCenter.Instance.ServerDataQueue.Enqueue(serverEventData);
+                        
                     } catch (InvalidProtocolBufferException exp) {
                         Debug.LogErrorFormat("{0} Parsing failed ReceiveMessage() ", exp.Message);
                     }
@@ -181,6 +188,7 @@ public class NetworkManager : SingletonMonoBehaviour<NetworkManager>
         }
     }
 
+    // 向服务器发送信息的统一方法
     public void Send(ByteString data) {
         try {
             // Debug.Log(data.ToStringUtf8());
@@ -199,21 +207,6 @@ public class NetworkManager : SingletonMonoBehaviour<NetworkManager>
             clientSocket.Send(pack);
         } catch (Exception exp) {
             Debug.LogError("Send(): " + exp.Message);
-        }
-    }
-    
-    // DEMO 示例使用的
-    public void Send(object data) {
-        Process(data);
-    }
-
-    // DEMO 示例使用的
-    private void Process(object data) {
-        Debug.Log(data.ToString());
-        if(data.ToString().Length > 1) {
-            MyFacade.GetInstance().SendNotification(MyFacade.LoginSucceed);
-        } else {
-            MyFacade.GetInstance().SendNotification(MyFacade.LoginFailed);
         }
     }
 

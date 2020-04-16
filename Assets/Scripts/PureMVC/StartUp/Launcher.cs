@@ -9,6 +9,7 @@ public class Launcher : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        MessageCenter.CreateInstance();
         NetworkManager.CreateInstance();
         NetworkManager.Instance.Connect(ip, port);
         MyFacade.GetInstance().SendNotification(MyFacade.StartUp);

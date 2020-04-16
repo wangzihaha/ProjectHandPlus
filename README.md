@@ -11,21 +11,29 @@ A online co-op game made with Unity Engine.
 
 服务端开发：廖青山 / 孙宋源
 
+&nbsp;
 
+### 客户端文件组织（暂定）
 
-### 客户端文件组织形式（暂定）
+**实现的功能在此处进行说明**
 
-[ Scripts / ]存放一般（无法归入下列分类）的脚本
+**[ Scripts / ]**存放一般（无法归入下列分类）的脚本
 
-[ Scripts / Protoc / ] 存放Protoc文件
+**[ Scripts / Protoc / ]** 存放Protoc文件
 
-[ Scripts / Managers / ] 存放单例Manager，在PureMVC框架下应该不多
+**[ Scripts / Managers / ]** 存放单例Manager，在PureMVC框架下应该不多
 
-[ Scripts / PureMVC / 需求A / … / ] 根据需求存放Proxy、Model、View、Meidator、Command等脚本，**如出现复用情况放在其中一处即可，最好在此处进行说明**
+MessageCenter -> 可对网络事件进行监听的事件系统，由于客户端本地事件由Facade内部通知系统实现，消息中心不提供对客户端本地事件进行监听的功能
+
+NetManager -> 连接服务器，发送消息，接收来自服务器消息
+
+**[ Scripts / PureMVC / StartUp/ ]**该模块下的Launcher.cs脚本初始化客户端必要的单例，与服务端建立连接，连接ip地址与端口port可以在Login场景Inspector指定 
+
+**[ Scripts / PureMVC / 需求A / … / ]** 根据需求存放Proxy、Model、View、Meidator、Command等脚本，**如出现复用情况放在其中一处即可，最好在此处进行说明**
 
 需求A 复用 需求B xxx.cs 脚本
 
-
+&nbsp;
 
 ### PureMVC使用笔记【补充修正欢迎】
 
