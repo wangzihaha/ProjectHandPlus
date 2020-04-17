@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using PureMVC.Patterns;
+using GameProto;
+using Google.Protobuf;
 
 public class MyFacade : Facade {
     public const string StartUp = "start_up";
