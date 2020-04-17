@@ -8,7 +8,7 @@ public class UserDataProxy : Proxy
     public new const string NAME = "UserData";
     
     public UserDataProxy(object data) : base(NAME, data) {
-
+        
     }
 
     public void SetProperty(UserDataModel newModel) {
