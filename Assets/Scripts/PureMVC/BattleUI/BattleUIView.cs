@@ -21,7 +21,8 @@ public class BattleUIView : MonoBehaviour
 
     private List<Action> actions = new List<Action>();
 
-    public void Updata() {
+    public void Update() {
+        //Debug.Log("Run");
 
         //执行监听的函数  --这里就是执行摇杆模块的事件
         foreach (var e in actions) {

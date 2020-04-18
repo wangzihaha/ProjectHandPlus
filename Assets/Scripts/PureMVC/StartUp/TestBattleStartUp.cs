@@ -1,17 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine;
 using PureMVC.Interfaces;
 using PureMVC.Patterns;
-using UnityEngine;
 
-public class StartUpCommand : SimpleCommand {
+public class TestBattleStartUpCommand : SimpleCommand 
+{
     public override void Execute(INotification notification) {
-        Debug.Log("StartUpCommand: hello!");
+        Debug.Log("TestBattleStartUpCommand: hello!");
 
-        GameObject loginPanel =(GameObject)GameObject.Instantiate(GameObjectTool.Instance.LoginPanel);
-        LoginPanelView loginPanelView = loginPanel.GetComponent<LoginPanelView>();
-        Facade.RegisterMediator(new LoginPanelMediator(loginPanelView));
-        
+        Facade.RegisterMediator(new BattleUIMediator(GameObject.Find("BattleUIManager").GetComponent<BattleUIView>()));
+
 
         //LoginPanelView loginPanelView = GameObject.Find("LoginPanel").GetComponent<LoginPanelView>();
         //Facade.RegisterMediator(new LoginPanelMediator(loginPanelView));

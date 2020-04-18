@@ -5,6 +5,10 @@ using TrueSync;
 
 public class BattleUIModel
 {
-    TSVector cameraTowards;
-    
+    public TSVector headTowards;
+
+    public TSVector2 moveDirection;
+
+    public int usePropsInPackID;
 }
+

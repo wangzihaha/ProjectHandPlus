@@ -14,6 +14,8 @@ public class MyFacade : Facade {
     public const string LoginSuccess = "login_succeed";
     public const string LoginFailure = "login_failed";
 
+    public const string TestBattleStartUp = "test_battle_start_up";
+
 
     //战斗操作指令(上传用)
     public const string BattleUI = "battle_ui";
@@ -22,6 +24,11 @@ public class MyFacade : Facade {
     //角色信息帧更新
     public const string CharactersFrameUpdata = "characters_frame_updata";
 
+    //客户端上传帧操作
+    public const string C2SPlayerInput = "c2s_player_input";
+
+    //假客户端操作
+    public const string FakeServer = "fake_server";
 
     public const string RefreshRoomList = "refreshRoomList";
 
@@ -40,6 +47,15 @@ public class MyFacade : Facade {
 
         RegisterCommand(BattleUI, typeof(BattleUICommand));
         RegisterCommand(CharactersFrameUpdata, typeof(CharactersFrameUpdataCommand));
+
+        RegisterCommand(C2SPlayerInput, typeof(C2SPlayerInputCommand));
+
+
+        //注册假服务器命令
+        RegisterCommand(FakeServer, typeof(FakeServerCommand));
+        //注册测试用场景启动命令
+        RegisterCommand(TestBattleStartUp, typeof(TestBattleStartUpCommand));
+
         //RegisterCommand(CharacterViewUpdata)
 
         // 从消息中心监听服务器发来的事件，将服务器发来的消息存入消息中心由NetworkManager完成
@@ -86,4 +102,5 @@ public class MyFacade : Facade {
     private void OnRegisterFailure(object data) {
         SendNotification(RegisterFailure);
     }
+
 }
