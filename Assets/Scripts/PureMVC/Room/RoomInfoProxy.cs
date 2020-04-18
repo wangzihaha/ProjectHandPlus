@@ -2,23 +2,26 @@
 using System.Collections.Generic;
 using UnityEngine;
 using PureMVC.Patterns;
+using GameProto;
 
 public class RoomInfoProxy : Proxy
 {
     public new const string NAME = "RoomInfo";
 
-    public List<RoomInfoModel> roomInfos;
+    public List<RoomInfo> roomInfos;
+    public RoomInfo myRoom;
+
 
     public RoomInfoProxy() : base(NAME)
     {
-        roomInfos = new List<RoomInfoModel>();
+        roomInfos = new List<RoomInfo>();
     }
-    public void AddRoomInfo(RoomInfoModel roomInfo)
+    public void AddRoomInfo(RoomInfo roomInfo)
     {
         roomInfos.Add(roomInfo);
     }
 
-    public void RemoveRoomInfo(RoomInfoModel roomInfo)
+    public void RemoveRoomInfo(RoomInfo roomInfo)
     {
         roomInfos.Remove(roomInfo);
     }
@@ -27,7 +30,7 @@ public class RoomInfoProxy : Proxy
     {
         for(int i=0;i<roomInfos.Count;i++)
         {
-            if(roomInfos[i].id==roomID)
+            if(roomInfos[i].Id==roomID)
             {
                 roomInfos.RemoveAt(i);
                 break;
@@ -35,11 +38,11 @@ public class RoomInfoProxy : Proxy
         }
     }
 
-    public RoomInfoModel GetRoomInfo(int roomID)
+    public RoomInfo GetRoomInfo(int roomID)
     {
         for (int i = 0; i < roomInfos.Count; i++)
         {
-            if (roomInfos[i].id == roomID)
+            if (roomInfos[i].Id == roomID)
             {
                 return roomInfos[i];
             }

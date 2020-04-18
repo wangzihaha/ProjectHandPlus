@@ -17,9 +17,11 @@ public class RoomListModel
         this.pageRoomGap = pageRoomGap;
         curPage = 0;
         maxPage = 0;
+        curRoomID = -1;
     }
     public int curPage;
     public int maxPage;
     public int pageRoomNum;
     public int pageRoomGap;
+    public int curRoomID;
 }

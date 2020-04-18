@@ -17,8 +17,12 @@ public class RoomListProxy : Proxy
     public void ChangePage(int dpage)
     {
         data.curPage += dpage;
-        Debug.Log(dpage);
-        SendNotification(MyFacade.RefreshRoomList);
+        SendNotification(MyFacade.RefreshRoomList,null);
+    }
+
+    public void ChangeCurRoomID(int ID)
+    {
+        data.curRoomID = ID;
     }
 
 }
