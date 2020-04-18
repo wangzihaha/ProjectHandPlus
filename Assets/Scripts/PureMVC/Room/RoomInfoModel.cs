@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+using GameProto;
+
 public class RoomInfoModel 
 {
     public int id;
@@ -11,7 +13,7 @@ public class RoomInfoModel
     public string mapName;
     public string password;
     public int maxPlayers;
-    public List<int> preparedPlayers = new List<int>();
-    public List<int> unPreparedPlayers = new List<int>();
+    public List<PlayerInfo> preparedPlayers = new List<PlayerInfo>();
+    public List<PlayerInfo> unPreparedPlayers = new List<PlayerInfo>();
     public int master;
 }

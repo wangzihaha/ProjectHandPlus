@@ -11,10 +11,16 @@ public class RegisterCommand : SimpleCommand{
     public override void Execute(INotification notification){
         UserDataModel message = (UserDataModel)notification.Body;
 
-        ClientMsg msg = new ClientMsg{
+        ClientMsg msg = new ClientMsg {
             Type = ClientEventCode.Regist,
-            Name = message.email,
-            Password = message.password
+            Playerinfo = new PlayerInfo
+            {
+                Nickname = message.userName,
+                Account = message.account,
+                Password = message.password
+            }
+            //Name = message.account,
+            //Password = message.password
         };
 
         NetworkManager.Instance.Send(msg.ToByteString());

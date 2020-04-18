@@ -20,7 +20,7 @@ public class LoginPanelMediator : Mediator
     private void OnClickRegister() {
 
 
-        GameObject registerPanel = (GameObject)GameObject.Instantiate(GameObjectTool.Instance.RegisterPanel);
+        GameObject registerPanel = (GameObject)GameObject.Instantiate(ResourceTool.Instance.RegisterPanel);
         RegisterPanelView registerPanelView = registerPanel.GetComponent<RegisterPanelView>();
         Facade.RegisterMediator(new RegisterPanelMediator(registerPanelView));
 
@@ -37,7 +37,7 @@ public class LoginPanelMediator : Mediator
         string _email = ((LoginPanelView)ViewComponent).emailText.text;
         string _password = ((LoginPanelView)ViewComponent).passwordText.text;
         UserDataModel message = new UserDataModel {
-            email = _email,
+            account = _email,
             password = _password
         };
         SendNotification(MyFacade.Login, message);
@@ -54,7 +54,12 @@ public class LoginPanelMediator : Mediator
                     ((LoginPanelView)ViewComponent).messageText.text = "登录成功";
                     //切换场景
 
-                    GameObject roomListPanel = (GameObject)GameObject.Instantiate(GameObjectTool.Instance.RoomListPanel);
+                    ServerMsg msg =(ServerMsg)notification.Body;
+
+                    ((UserDataModel)Facade.RetrieveProxy(UserDataProxy.NAME).Data).uid = msg.PlayerInfo.Uid;
+                    ((UserDataModel)Facade.RetrieveProxy(UserDataProxy.NAME).Data).userName = msg.PlayerInfo.Nickname;
+
+                    GameObject roomListPanel = (GameObject)GameObject.Instantiate(ResourceTool.Instance.RoomListPanel);
                     RoomListPanelView roomListPanellView = roomListPanel.GetComponent<RoomListPanelView>();
                     Facade.RegisterProxy(new RoomInfoProxy());
                     Facade.RegisterMediator(new RoomListPanelMediator(roomListPanellView));

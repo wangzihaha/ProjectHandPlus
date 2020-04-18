@@ -4,6 +4,7 @@ using UnityEngine;
 using PureMVC.Patterns;
 using GameProto;
 using Google.Protobuf;
+using System;
 
 public class MyFacade : Facade {
     public const string StartUp = "start_up";
@@ -13,8 +14,7 @@ public class MyFacade : Facade {
     public const string RegisterFailure = "register_failed";
     public const string LoginSuccess = "login_succeed";
     public const string LoginFailure = "login_failed";
-
-
+   
     //战斗操作指令(上传用)
     public const string BattleUI = "battle_ui";
     public const string CharacterViewUpdata = "character_view_updata";
@@ -22,9 +22,12 @@ public class MyFacade : Facade {
     //角色信息帧更新
     public const string CharactersFrameUpdata = "characters_frame_updata";
 
-
+    //房间相关
     public const string RefreshRoomList = "refreshRoomList";
-
+    public const string CreatRoom = "creatRoom";
+    public const string EnterRoom = "enterRoom";
+    public const string EnterRoomSuccess = "enterRoomSuccess";
+    public const string CreatRoomSuccess = "creatRoomSuccess";
     static MyFacade() {
         m_instance = new MyFacade();
     }
@@ -43,10 +46,13 @@ public class MyFacade : Facade {
         //RegisterCommand(CharacterViewUpdata)
 
         // 从消息中心监听服务器发来的事件，将服务器发来的消息存入消息中心由NetworkManager完成
-        
 
         RegisterCommand(Register, typeof(RegisterCommand));
+
+        //房间相关
         RegisterCommand(RefreshRoomList, typeof(RefreshRoomListCommand));
+        RegisterCommand(CreatRoom, typeof(CreatRoomCommand));
+        RegisterCommand(EnterRoom, typeof(EnterRoomCommand));
         // 从消息中心监听服务器发来的事件，将服务器发来的消息存入消息中心由NetworkManager完成
         MessageCenter.Instance.AddObserver(GameProto.ServerEventCode.LogInSuccess, OnLoginSucess);
         MessageCenter.Instance.AddObserver(GameProto.ServerEventCode.LogInErrorAccountDontExist, OnLoginFailure);
@@ -54,8 +60,12 @@ public class MyFacade : Facade {
         MessageCenter.Instance.AddObserver(GameProto.ServerEventCode.LogInErrorReLogIn, OnLoginFailure);
         MessageCenter.Instance.AddObserver(GameProto.ServerEventCode.RegisterSuccess, OnRegisterSuccess);
         MessageCenter.Instance.AddObserver(GameProto.ServerEventCode.RegisterErrorAccountAlreadyExist, OnRegisterFailure);
-
+        MessageCenter.Instance.AddObserver(GameProto.ServerEventCode.BroadRoomListInfo,OnRefreshRoomList);
+        MessageCenter.Instance.AddObserver(GameProto.ServerEventCode.EnterRoomSuccess,OnEnterRoomSuccess);
+        MessageCenter.Instance.AddObserver(GameProto.ServerEventCode.CreateRoomSuccess, OnCreatRoomSuccess);
     }
+
+
 
     protected override void InitializeView() {
         base.InitializeView();
@@ -71,8 +81,24 @@ public class MyFacade : Facade {
         RegisterProxy(new BattleUIProxy(new BattleUIModel()));
     }
 
+    private void OnCreatRoomSuccess(object data)
+    {
+        SendNotification(CreatRoomSuccess,data);
+    }
+
+    private void OnEnterRoomSuccess(object data)
+    {
+        SendNotification(EnterRoomSuccess, data);
+    }
+
+
+    private void OnRefreshRoomList(object data)
+    {
+        SendNotification(RefreshRoomList,data);
+    }
+
     private void OnLoginSucess(object data) {
-        SendNotification(LoginSuccess);
+        SendNotification(LoginSuccess, data);
     }
 
     private void OnLoginFailure(object data) {

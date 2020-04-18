@@ -198,7 +198,7 @@ GameObject:
   - component: {fileID: 1325463168}
   - component: {fileID: 1325463167}
   m_Layer: 0
-  m_Name: GameObjectTool
+  m_Name: ResourceTool
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -224,6 +224,20 @@ MonoBehaviour:
     type: 3}
   RoomListPanel: {fileID: 324307984707844812, guid: fe9e247df3e8c26428435c417b086f73,
     type: 3}
+  RoomCreatPanel: {fileID: 4623149988257088642, guid: 806b3301be464c547b0b7e0cf674585f,
+    type: 3}
+  RoomPanel: {fileID: 8543356181710255016, guid: 93627af8dee687d4c944411a4f575b47,
+    type: 3}
+  SelectRolePanel: {fileID: 7824753152909433643, guid: 4b0540356eeb54947b9446bc7d758db1,
+    type: 3}
+  maps:
+  - StareBySan
+  - WeisuoMan1
+  - WeisuoMan2
+  roles:
+  - Shange
+  - WeiSuoMan1
+  - WeiSuoMan2
 --- !u!4 &1325463168
 Transform:
   m_ObjectHideFlags: 0

@@ -315,7 +315,7 @@ MonoBehaviour:
   onValueChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_IsOn: 1
+  m_IsOn: 0
 --- !u!1 &1278182677626428957
 GameObject:
   m_ObjectHideFlags: 0
@@ -433,6 +433,7 @@ MonoBehaviour:
   mapType: {fileID: 1848851508022112290}
   master: {fileID: 2479658819408265006}
   amountText: {fileID: 8161726786963292181}
+  toggle: {fileID: 5687667240669200264}
 --- !u!1 &1443146062809423189
 GameObject:
   m_ObjectHideFlags: 0

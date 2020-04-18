@@ -1,8 +1,10 @@
-﻿using PureMVC.Interfaces;
+﻿using GameProto;
+using PureMVC.Interfaces;
 using PureMVC.Patterns;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+
 
 public class RefreshRoomListCommand : SimpleCommand
 {
@@ -12,6 +14,15 @@ public class RefreshRoomListCommand : SimpleCommand
         RoomInfoProxy roomInfoProxy = (RoomInfoProxy)Facade.RetrieveProxy(RoomInfoProxy.NAME);
         RoomListProxy roomListProxy = (RoomListProxy)Facade.RetrieveProxy(RoomListProxy.NAME);
 
+        ServerMsg msg = (ServerMsg)notification.Body;
+
+        if(msg!=null)
+        {
+            roomInfoProxy.roomInfos.Clear();
+            roomInfoProxy.roomInfos = new List<RoomInfo>(msg.Roominfos);
+        }
+
+
         int pageRoomNum = roomListProxy.data.pageRoomNum;
 
         int maxPage = roomInfoProxy.roomInfos.Count == 0 ? 1 : (roomInfoProxy.roomInfos.Count - 1) / pageRoomNum + 1;
@@ -20,12 +31,11 @@ public class RefreshRoomListCommand : SimpleCommand
         curPage = Mathf.Min(maxPage, curPage);
         roomListProxy.data.maxPage = maxPage;
         roomListProxy.data.curPage = curPage;
-
-
-
         RoomListPanelView roomListPanelView = (RoomListPanelView)roomListPanelMediator.ViewComponent;
 
-        for(int i=0;i< roomListPanelView.roomShortInfos.Count;i++)
+        roomListPanelView.pageNum.text = roomListProxy.data.curPage + "/" + roomListProxy.data.maxPage;
+
+        for (int i=0;i< roomListPanelView.roomShortInfos.Count;i++)
         {
             GameObject.Destroy(roomListPanelView.roomShortInfos[i]);
         }
@@ -34,20 +44,19 @@ public class RefreshRoomListCommand : SimpleCommand
 
         for(int i = (curPage - 1) * pageRoomNum, posY=0; i < Mathf.Min(curPage * pageRoomNum, roomInfoProxy.roomInfos.Count); i++, posY-=roomListProxy.data.pageRoomGap) 
         {
-            GameObject newShortInfo = GameObject.Instantiate(GameObjectTool.Instance.RoomShortInfoView);
+            GameObject newShortInfo = GameObject.Instantiate(ResourceTool.Instance.RoomShortInfoView);
             roomListPanelView.roomShortInfos.Add(newShortInfo);
             newShortInfo.transform.SetParent(roomListPanelView.RoomList.transform);
             ((RectTransform)newShortInfo.transform).localPosition = new Vector3(0, posY, 0);
             RoomShortInfoView newView = newShortInfo.GetComponent<RoomShortInfoView>();
-            RoomInfoModel roomInfo = roomInfoProxy.roomInfos[i];
-            newView.roomID.text = roomInfo.id.ToString();
-            newView.roomName.text = roomInfo.roomName;
-            newView.mapType.text = roomInfo.mapName;
-            newView.master.text = roomInfo.master.ToString();
-            int playersInRoom = roomInfo.preparedPlayers.Count + roomInfo.unPreparedPlayers.Count;
-            newView.amountText.text = playersInRoom + "/" + roomInfo.maxPlayers;
-            
-        }
+            RoomInfo roomInfo = roomInfoProxy.roomInfos[i];
+            newView.roomID.text = roomInfo.Id.ToString();
+            newView.roomName.text = roomInfo.RoomName;
+            newView.mapType.text = roomInfo.MapName;
+            newView.master.text = roomInfo.Master.ToString();
+            newView.amountText.text = roomInfo.CurPlayerNumber + "/" + roomInfo.MaxPlayers;
 
+            roomListPanelMediator.AddListenToRoomShortInfo(newView);
+        }
     }
 }

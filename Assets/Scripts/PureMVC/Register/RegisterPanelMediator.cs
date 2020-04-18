@@ -19,7 +19,7 @@ public class RegisterPanelMediator : Mediator
 
     private void OnClickCancle()
     {
-        GameObject loginPanel = (GameObject)GameObject.Instantiate(GameObjectTool.Instance.LoginPanel);
+        GameObject loginPanel = (GameObject)GameObject.Instantiate(ResourceTool.Instance.LoginPanel);
         LoginPanelView loginPanelView = loginPanel.GetComponent<LoginPanelView>();
         Facade.RegisterMediator(new LoginPanelMediator(loginPanelView));
 
@@ -45,7 +45,8 @@ public class RegisterPanelMediator : Mediator
         }
         UserDataModel message = new UserDataModel
         {
-            email = _email,
+            userName = _userName,
+            account = _email,
             password = _password
         };
         SendNotification(MyFacade.Register, message);
