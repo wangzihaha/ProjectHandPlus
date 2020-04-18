@@ -6,15 +6,26 @@ message Position{
 	float y=2;
 	float z=3;
 }
-
 //S2C
 enum ServerEventCode {
 	LogInSuccess = 0;
 	RegisterSuccess = 1;
 	EnterRoomSuccess = 2;
-	Failure = 3;
-	JumpToBattleServer = 4;
-	S2CSync = 5;
+	
+	LogInError_AccountDontExist = 3;
+	LogInError_PasswordWrong = 4;
+	LogInError_ReLogIn = 5;
+
+	RegisterError_AccountAlreadyExist = 6;
+	
+	EnterRoomError_DontLogIn = 7;
+	EnterRoomError_RoomIsFull = 8;
+
+	InternalError = 9;
+
+    BroadRoomInfo = 10;
+	JumpToBattleServer = 11;
+	S2CSync = 12;
 }
 
 //C2S
@@ -43,6 +54,12 @@ message PlayerInput{
 	bool attach=4;
 }
 
+message RoomInfo {
+    int32 id = 1;
+    int32 maxusers = 2;
+    repeated string members = 3;
+}
+
 //客户端数据包
 //登录：type=LogIn,name,password
 //注册：type=Regist,name,password
@@ -57,6 +74,7 @@ message ClientMsg{
 	PlayerInput input=5;
 }
 
+
 //服务器数据包
 //登录成功：type = LogInSuccess
 //注册成功：type = RegistSuccess
@@ -70,4 +88,5 @@ message ServerMsg{
 	string str=3;
 	repeated PlayerInput inputs=4;
 	repeated PlayerState states=5;
+    repeated RoomInfo roominfos=6;
 }

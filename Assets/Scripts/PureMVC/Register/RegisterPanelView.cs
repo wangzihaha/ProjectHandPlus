@@ -2,14 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
-
-public class LoginPanelView : MonoBehaviour
+public class RegisterPanelView : MonoBehaviour
 {
-    public Button loginBtn;
     public Button registerBtn;
+    public Button cancleBtn;
+    public InputField userNameText;
     public InputField emailText;
     public InputField passwordText;
+    public InputField checkPasswordText;
     public Text messageText;
-
 }
