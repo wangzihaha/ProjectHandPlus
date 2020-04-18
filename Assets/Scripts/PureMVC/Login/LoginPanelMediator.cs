@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using PureMVC.Patterns;
 using PureMVC.Interfaces;
+using GameProto;
 
 public class LoginPanelMediator : Mediator
 {
@@ -12,7 +13,24 @@ public class LoginPanelMediator : Mediator
 
     public LoginPanelMediator(object viewComponent):base(NAME, viewComponent) {
         ((LoginPanelView)ViewComponent).loginBtn.onClick.AddListener(OnClickLogin);
+        ((LoginPanelView)ViewComponent).registerBtn.onClick.AddListener(OnClickRegister);
         userDataProxy = Facade.RetrieveProxy(UserDataProxy.NAME) as UserDataProxy;
+    }
+
+    private void OnClickRegister() {
+
+
+        GameObject registerPanel = (GameObject)GameObject.Instantiate(GameObjectTool.Instance.RegisterPanel);
+        RegisterPanelView registerPanelView = registerPanel.GetComponent<RegisterPanelView>();
+        Facade.RegisterMediator(new RegisterPanelMediator(registerPanelView));
+
+        GameObject loginPanel = ((LoginPanelView)Facade.RetrieveMediator(LoginPanelMediator.NAME).ViewComponent).gameObject;
+        Facade.RemoveMediator(LoginPanelMediator.NAME);
+        GameObject.Destroy(loginPanel);
+
+        //((RegisterPanelView)Facade.RetrieveMediator(RegisterPanelMediator.NAME).ViewComponent).gameObject.SetActive(true);
+
+        //((LoginPanelView)Facade.RetrieveMediator(LoginPanelMediator.NAME).ViewComponent).gameObject.SetActive(false);
     }
 
     private void OnClickLogin() {
@@ -32,11 +50,38 @@ public class LoginPanelMediator : Mediator
     public override void HandleNotification(INotification notification) {
         switch (notification.Name) {
             case MyFacade.LoginSuccess:
-                ((LoginPanelView)ViewComponent).messageText.text = "succeed";
+                {
+                    ((LoginPanelView)ViewComponent).messageText.text = "登录成功";
+                    //切换场景
+
+                    GameObject roomListPanel = (GameObject)GameObject.Instantiate(GameObjectTool.Instance.RoomListPanel);
+                    RoomListPanelView roomListPanellView = roomListPanel.GetComponent<RoomListPanelView>();
+                    Facade.RegisterProxy(new RoomInfoProxy());
+                    Facade.RegisterMediator(new RoomListPanelMediator(roomListPanellView));
+                    
+
+                    GameObject loginPanel = ((LoginPanelView)Facade.RetrieveMediator(LoginPanelMediator.NAME).ViewComponent).gameObject;
+                    Facade.RemoveMediator(LoginPanelMediator.NAME);
+                    GameObject.Destroy(loginPanel);
+                }
                 break;
             case MyFacade.LoginFailure:
-                ((LoginPanelView)ViewComponent).messageText.text = "failed";
+                {
+                    if (((ServerMsg)notification.Body).Type == ServerEventCode.LogInErrorAccountDontExist)
+                    {
+                        ((LoginPanelView)ViewComponent).messageText.text = "用户名不存在";
+                    }
+                    else if(((ServerMsg)notification.Body).Type == ServerEventCode.LogInErrorPasswordWrong)
+                    {
+                        ((LoginPanelView)ViewComponent).messageText.text = "密码错误";
+                    }
+                    else if(((ServerMsg)notification.Body).Type == ServerEventCode.LogInErrorReLogIn)
+                    {
+                        ((LoginPanelView)ViewComponent).messageText.text = "用户已登录";
+                    }
+                }
                 break;
+
             default:
                 break;
         }
