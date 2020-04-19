@@ -82,7 +82,7 @@ namespace GameProto {
   }
   #region Enums
   /// <summary>
-  ///S2CÊÂ¼þÂë
+  ///S2Cï¿½Â¼ï¿½ï¿½ï¿½
   /// </summary>
   public enum ServerEventCode {
     [pbr::OriginalName("LogInSuccess")] LogInSuccess = 0,
@@ -107,7 +107,7 @@ namespace GameProto {
   }
 
   /// <summary>
-  ///C2SÊÂ¼þÂë
+  ///C2Sï¿½Â¼ï¿½ï¿½ï¿½
   /// </summary>
   public enum ClientEventCode {
     [pbr::OriginalName("LogIn")] LogIn = 0,
@@ -310,7 +310,7 @@ namespace GameProto {
   }
 
   /// <summary>
-  ///Íæ¼ÒÐÅÏ¢
+  ///ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
   /// </summary>
   public sealed partial class PlayerInfo : pb::IMessage<PlayerInfo> {
     private static readonly pb::MessageParser<PlayerInfo> _parser = new pb::MessageParser<PlayerInfo>(() => new PlayerInfo());
@@ -398,7 +398,7 @@ namespace GameProto {
     public const int RoomidFieldNumber = 5;
     private int roomid_;
     /// <summary>
-    ///ºóÐøÌí¼Ó
+    ///ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int Roomid {
@@ -557,7 +557,7 @@ namespace GameProto {
   }
 
   /// <summary>
-  ///Íæ¼Ò×´Ì¬
+  ///ï¿½ï¿½ï¿½×´Ì¬
   /// </summary>
   public sealed partial class PlayerState : pb::IMessage<PlayerState> {
     private static readonly pb::MessageParser<PlayerState> _parser = new pb::MessageParser<PlayerState>(() => new PlayerState());
@@ -807,7 +807,7 @@ namespace GameProto {
   }
 
   /// <summary>
-  ///Íæ¼ÒÒ»´Î²Ù×÷
+  ///ï¿½ï¿½ï¿½Ò»ï¿½Î²ï¿½ï¿½ï¿½
   /// </summary>
   public sealed partial class PlayerInput : pb::IMessage<PlayerInput> {
     private static readonly pb::MessageParser<PlayerInput> _parser = new pb::MessageParser<PlayerInput>(() => new PlayerInput());
@@ -852,7 +852,7 @@ namespace GameProto {
     public const int HeadTowardsXFieldNumber = 1;
     private long headTowardsX_;
     /// <summary>
-    ///Íæ¼ÒÍ·(ÊÓ½Ç)³¯Ïò
+    ///ï¿½ï¿½ï¿½Í·(ï¿½Ó½ï¿½)ï¿½ï¿½ï¿½ï¿½
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public long HeadTowardsX {
@@ -888,7 +888,7 @@ namespace GameProto {
     public const int MoveDirectionXFieldNumber = 4;
     private long moveDirectionX_;
     /// <summary>
-    ///Íæ¼ÒÒÆ¶¯ËÙ¶È
+    ///ï¿½ï¿½ï¿½ï¿½Æ¶ï¿½ï¿½Ù¶ï¿½
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public long MoveDirectionX {
@@ -913,7 +913,7 @@ namespace GameProto {
     public const int UsePropsInPackIDFieldNumber = 6;
     private int usePropsInPackID_;
     /// <summary>
-    ///Ê¹ÓÃµÄµÀ¾ßÔÚ±³°üÖÐµÄID   ¼¼ÄÜÒ²ÊÇµÀ¾ß
+    ///Ê¹ï¿½ÃµÄµï¿½ï¿½ï¿½ï¿½Ú±ï¿½ï¿½ï¿½ï¿½Ðµï¿½ID   ï¿½ï¿½ï¿½ï¿½Ò²ï¿½Çµï¿½ï¿½ï¿½
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int UsePropsInPackID {
@@ -1088,16 +1088,16 @@ namespace GameProto {
   }
 
   /// <summary>
-  ///·¿¼äÐÅÏ¢
-  ///·¿¼äid 
-  ///Ã¿¾ÖÊ±¼ä
-  ///¾ÖÊý
-  ///µØÍ¼Ãû
-  ///·¿¼äÃÜÂë
-  ///×î´óÍæ¼ÒÊýÁ¿
-  ///×¼±¸ÖÐµÄÍæ¼Ò
-  ///Î´×¼±¸µÄÍæ¼Ò
-  ///·¿Ö÷
+  ///ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
+  ///ï¿½ï¿½ï¿½ï¿½id 
+  ///Ã¿ï¿½ï¿½Ê±ï¿½ï¿½
+  ///ï¿½ï¿½ï¿½ï¿½
+  ///ï¿½ï¿½Í¼ï¿½ï¿½
+  ///ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+  ///ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+  ///×¼ï¿½ï¿½ï¿½Ðµï¿½ï¿½ï¿½ï¿½
+  ///Î´×¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+  ///ï¿½ï¿½ï¿½ï¿½
   /// </summary>
   public sealed partial class RoomInfo : pb::IMessage<RoomInfo> {
     private static readonly pb::MessageParser<RoomInfo> _parser = new pb::MessageParser<RoomInfo>(() => new RoomInfo());
@@ -1493,12 +1493,12 @@ namespace GameProto {
   }
 
   /// <summary>
-  ///¿Í»§¶ËÊý¾Ý°ü
-  ///µÇÂ¼£ºtype=LogIn,playerinfo(account, password)
-  ///×¢²á£ºtype=Regist,playerinfo(account, password, nickname)
-  ///½ø·¿¼ä£ºtype=EnterRoom, playerInfo(uid),id=room_id
-  ///Í¬²½£ºtype=Sync,input
-  ///×·Ö¡£ºtype=Follow, playerinfo(uid),id=fid
+  ///ï¿½Í»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ý°ï¿½
+  ///ï¿½ï¿½Â¼ï¿½ï¿½type=LogIn,playerinfo(account, password)
+  ///×¢ï¿½á£ºtype=Regist,playerinfo(account, password, nickname)
+  ///ï¿½ï¿½ï¿½ï¿½ï¿½ä£ºtype=EnterRoom, playerInfo(uid),id=room_id
+  ///Í¬ï¿½ï¿½ï¿½ï¿½type=Sync,input
+  ///×·Ö¡ï¿½ï¿½type=Follow, playerinfo(uid),id=fid
   /// </summary>
   public sealed partial class ClientMsg : pb::IMessage<ClientMsg> {
     private static readonly pb::MessageParser<ClientMsg> _parser = new pb::MessageParser<ClientMsg>(() => new ClientMsg());
@@ -1732,13 +1732,13 @@ namespace GameProto {
   }
 
   /// <summary>
-  ///·þÎñÆ÷Êý¾Ý°ü
-  ///µÇÂ¼³É¹¦£ºtype = LogInSuccess playerinfo(), roominfos
-  ///×¢²á³É¹¦£ºtype = RegistSuccess 
-  ///½ø·¿¼ä³É¹¦£ºtype = EnterRoomSuccess, roominfos
-  ///µÇÂ¼£¬×¢²á£¬½ø·¿¼äÊ§°Ü£ºtype=Failure,str
-  ///Ìø×ª·þÎñÆ÷: type=JumpToBattleServer,str=ip:port
-  ///Í¬²½£ºtype = Sync,fid,inputs,(states?)
+  ///ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ý°ï¿½
+  ///ï¿½ï¿½Â¼ï¿½É¹ï¿½ï¿½ï¿½type = LogInSuccess playerinfo(), roominfos
+  ///×¢ï¿½ï¿½É¹ï¿½ï¿½ï¿½type = RegistSuccess 
+  ///ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É¹ï¿½ï¿½ï¿½type = EnterRoomSuccess, roominfos
+  ///ï¿½ï¿½Â¼ï¿½ï¿½×¢ï¿½á£¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê§ï¿½Ü£ï¿½type=Failure,str
+  ///ï¿½ï¿½×ªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: type=JumpToBattleServer,str=ip:port
+  ///Í¬ï¿½ï¿½ï¿½ï¿½type = Sync,fid,inputs,(states?)
   /// </summary>
   public sealed partial class ServerMsg : pb::IMessage<ServerMsg> {
     private static readonly pb::MessageParser<ServerMsg> _parser = new pb::MessageParser<ServerMsg>(() => new ServerMsg());

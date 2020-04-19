@@ -18,8 +18,15 @@ public class LoginCommand : SimpleCommand {
 
         ClientMsg msg = new ClientMsg {
             Type = ClientEventCode.LogIn,
-            Name = message.email,
-            Password = message.password
+
+            Playerinfo = new PlayerInfo
+            {
+                Account = message.account,
+                Password = message.password
+            }
+
+            //Playerinfo.Account = message.email,
+            //Password = message.password
         };
 
         NetworkManager.Instance.Send(msg.ToByteString());
