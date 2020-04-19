@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using TrueSync;
 public class EasyTouchMove : MonoBehaviour, IDragHandler,IEndDragHandler{
     //图标移动最大半径
     public float maxRadius = 100;
@@ -19,7 +20,14 @@ public class EasyTouchMove : MonoBehaviour, IDragHandler,IEndDragHandler{
     public float Vertical {
         get { return vertical; }
     }
- 
+
+
+
+    //记录左摇杆拖拽的方向（和力度）
+    public TSVector2 fMoveDirection;
+
+
+    public static float touchTime = 0;
   
     // Use this for initialization
     void Start () {
@@ -45,7 +53,7 @@ public class EasyTouchMove : MonoBehaviour, IDragHandler,IEndDragHandler{
         if(Input.GetKey(KeyCode.DownArrow) && tv < 0) {
             vertical += -1;
         }
-        
+        touchTime += Time.deltaTime;
         //Debug.Log("TOUCH    " + horizontal + " , " + vertical);
     }
  
@@ -58,11 +66,17 @@ public class EasyTouchMove : MonoBehaviour, IDragHandler,IEndDragHandler{
         float radius = Mathf.Clamp(distance, 0, maxRadius);
         //限制半径长度
         transform.position = moveBackPos + oppsitionVec.normalized * radius;
- 
+
+
+        //用定点数记录摇杆拖拽方向
+        var moveDirection = oppsitionVec.normalized*radius;
+        fMoveDirection.x = (FP)(((int)(moveDirection.x*1000))*1.0/1000.0);
+        fMoveDirection.y = (FP)(((int)(moveDirection.y*1000))*1.0/1000.0);
     }
  
     public void OnEndDrag(PointerEventData eventData) {
         transform.position = moveBackPos;
         transform.localPosition = Vector3.zero;
+        fMoveDirection = TSVector2.zero;
     }
 }
