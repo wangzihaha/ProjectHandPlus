@@ -9,9 +9,23 @@ using PureMVC.Patterns;
 public class BattleUICommand : SimpleCommand
 {
    public override void Execute(INotification notification) {
-        CharactersDataProxy proxy = Facade.RetrieveProxy(CharactersDataProxy.NAME) as CharactersDataProxy;
-        FrameDataModel message = (FrameDataModel)notification.Body;
+        //CharactersDataProxy proxy = Facade.RetrieveProxy(CharactersDataProxy.NAME) as CharactersDataProxy;
+        //FrameDataModel message = (FrameDataModel)notification.Body;
 
-        proxy.FrameUpdata(message);
+        //proxy.FrameUpdata(message);
    }
+}
+
+
+public class C2SPlayerInputCommand : SimpleCommand
+{
+    public override void Execute(INotification notification) {
+        BattleUIModel message = (BattleUIModel)notification.Body;
+
+        //PlayerInput
+        ClientMsg msg = new ClientMsg() {
+            Type = ClientEventCode.C2Ssync,
+            
+        };
+    }
 }

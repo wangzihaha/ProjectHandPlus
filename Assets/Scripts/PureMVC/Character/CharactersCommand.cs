@@ -12,10 +12,10 @@ public class CharactersFrameUpdataCommand : SimpleCommand
     public override void Execute(INotification notification)
     {
         CharactersDataProxy proxy = Facade.RetrieveProxy(CharactersDataProxy.NAME) as CharactersDataProxy;
-        FrameDataModel message = (FrameDataModel)notification.Body;
+        List<PlayerInput> inputs = (List<PlayerInput>)notification.Body;
 
 
         //将收到的帧操作交给角色代理处理，更新角色信息
-        proxy.FrameUpdata(message);
+        proxy.FrameUpdata(inputs);
     }
 }
