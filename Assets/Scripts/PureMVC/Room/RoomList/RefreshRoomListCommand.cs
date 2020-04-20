@@ -48,6 +48,8 @@ public class RefreshRoomListCommand : SimpleCommand
             roomListPanelView.roomShortInfos.Add(newShortInfo);
             newShortInfo.transform.SetParent(roomListPanelView.RoomList.transform);
             ((RectTransform)newShortInfo.transform).localPosition = new Vector3(0, posY, 0);
+
+
             RoomShortInfoView newView = newShortInfo.GetComponent<RoomShortInfoView>();
             RoomInfo roomInfo = roomInfoProxy.roomInfos[i];
             newView.roomID.text = roomInfo.Id.ToString();

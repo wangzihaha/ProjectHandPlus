@@ -62,6 +62,7 @@ public class LoginPanelMediator : Mediator
                     GameObject roomListPanel = (GameObject)GameObject.Instantiate(ResourceTool.Instance.RoomListPanel);
                     RoomListPanelView roomListPanellView = roomListPanel.GetComponent<RoomListPanelView>();
                     Facade.RegisterProxy(new RoomInfoProxy());
+                    Facade.RegisterProxy(new PlayerInfoProxy(msg.PlayerInfo));
                     Facade.RegisterMediator(new RoomListPanelMediator(roomListPanellView));
                     
 
