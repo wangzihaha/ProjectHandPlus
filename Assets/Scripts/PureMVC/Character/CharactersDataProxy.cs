@@ -24,7 +24,7 @@ public class CharactersDataProxy : Proxy
     public void FrameUpdata(List<PlayerInput> opts) {
 
         foreach (var e in opts) {
-            UpdateCharacter(e.UID, e);
+            UpdateCharacter(e.Uid, e);
 
 
             FP x = new FP(), z = new FP();

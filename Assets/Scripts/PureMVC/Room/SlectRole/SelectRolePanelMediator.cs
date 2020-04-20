@@ -13,9 +13,12 @@ public class SelectRolePanelMediator : Mediator
     {
         SelectRolePanelView view = ((SelectRolePanelView)ViewComponent);
 
-        view.rolePreview.sprite = ResourceTool.Instance.GetRolePreview(ResourceTool.Instance.roles[0]);
-        view.roleIntroduce.text = ResourceTool.Instance.GetRoleIntroduce(ResourceTool.Instance.roles[0]);
-        view.curRoleIndex = 0;
+        PlayerInfoProxy playerInfo = (PlayerInfoProxy)Facade.RetrieveProxy(PlayerInfoProxy.NAME);
+        int curRole = ResourceTool.Instance.GetRoleIndex(playerInfo.data.CharacterName);
+
+        view.rolePreview.sprite = ResourceTool.Instance.GetRolePreview(ResourceTool.Instance.roles[curRole]);
+        view.roleIntroduce.text = ResourceTool.Instance.GetRoleIntroduce(ResourceTool.Instance.roles[curRole]);
+        view.curRoleIndex = curRole;
         view.maxRoleNum = ResourceTool.Instance.roles.Count;
 
         view.cancleBtn.onClick.AddListener(OnCancle);
@@ -26,7 +29,14 @@ public class SelectRolePanelMediator : Mediator
 
     private void OnSelect()
     {
-        
+        PlayerInfoProxy playerInfo = (PlayerInfoProxy)Facade.RetrieveProxy(PlayerInfoProxy.NAME);
+
+        SelectRolePanelView view = ((SelectRolePanelView)ViewComponent);
+        playerInfo.data.CharacterName = ResourceTool.Instance.roles[view.curRoleIndex];
+
+        ((RoomPanelMediator)Facade.RetrieveMediator(RoomPanelMediator.NAME)).ChangeRolePreview(playerInfo.data.CharacterName);
+        SendNotification(MyFacade.ChangeRoomPlayerInfo,playerInfo.data);
+        OnCancle();
     }
 
     private void OnNextRole()

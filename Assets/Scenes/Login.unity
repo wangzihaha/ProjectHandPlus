@@ -230,6 +230,8 @@ MonoBehaviour:
     type: 3}
   SelectRolePanel: {fileID: 7824753152909433643, guid: 4b0540356eeb54947b9446bc7d758db1,
     type: 3}
+  RoleShortInfoView: {fileID: 795781422195155975, guid: ee52202337702984b8ecf11eef3babdb,
+    type: 3}
   maps:
   - StareBySan
   - WeisuoMan1

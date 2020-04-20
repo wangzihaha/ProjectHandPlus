@@ -24,6 +24,7 @@ public class ResourceTool : SingletonMonoBehaviour<ResourceTool>
     public GameObject RoomCreatPanel;
     public GameObject RoomPanel;
     public GameObject SelectRolePanel;
+    public GameObject RoleShortInfoView;
 
     public List<string> maps;
     public List<string> roles;
@@ -40,6 +41,18 @@ public class ResourceTool : SingletonMonoBehaviour<ResourceTool>
             
     }
 
+
+    public int GetRoleIndex(string name)
+    {
+        for(int i=0;i<roles.Count;i++)
+        {
+            if(roles[i]==name)
+            {
+                return i;
+            }
+        }
+        return -1;
+    }
 
     public Sprite GetMapPreview(string name)
     {

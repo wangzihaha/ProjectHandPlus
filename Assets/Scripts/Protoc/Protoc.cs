@@ -25,56 +25,57 @@ namespace GameProto {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
             "ChBnYW1lX3Byb3RvLnByb3RvEglHYW1lUHJvdG8iKwoIUG9zaXRpb24SCQoB",
-            "eBgBIAEoAhIJCgF5GAIgASgCEgkKAXoYAyABKAIiXgoKUGxheWVySW5mbxIL",
-            "CgN1aWQYASABKAUSDwoHYWNjb3VudBgCIAEoCRIQCghwYXNzd29yZBgDIAEo",
-            "CRIQCghuaWNrbmFtZRgEIAEoCRIOCgZyb29taWQYBSABKAUiZgoLUGxheWVy",
-            "U3RhdGUSCwoDZmlkGAEgASgFEgwKBG5hbWUYAiABKAkSCwoDeWF3GAMgASgC",
-            "EiAKA3BvcxgEIAEoCzITLkdhbWVQcm90by5Qb3NpdGlvbhINCgVzdGF0ZRgF",
-            "IAEoBSKZAQoLUGxheWVySW5wdXQSFAoMaGVhZFRvd2FyZHNYGAEgASgDEhQK",
-            "DGhlYWRUb3dhcmRzWRgCIAEoAxIUCgxoZWFkVG93YXJkc1oYAyABKAMSFgoO",
-            "bW92ZURpcmVjdGlvblgYBCABKAMSFgoObW92ZURpcmVjdGlvblkYBSABKAMS",
-            "GAoQdXNlUHJvcHNJblBhY2tJRBgGIAEoBSKSAgoIUm9vbUluZm8SCgoCaWQY",
-            "ASABKAUSEQoJcm91bmRUaW1lGAIgASgFEhMKC3JvdW5kTnVtYmVyGAMgASgF",
-            "EhAKCHJvb21OYW1lGAQgASgJEg8KB21hcE5hbWUYBSABKAkSEAoIcGFzc3dv",
-            "cmQYBiABKAkSEgoKbWF4UGxheWVycxgHIAEoBRIXCg9jdXJQbGF5ZXJOdW1i",
-            "ZXIYCCABKAUSLgoPcHJlcGFyZWRQbGF5ZXJzGAkgAygLMhUuR2FtZVByb3Rv",
-            "LlBsYXllckluZm8SMAoRdW5QcmVwYXJlZFBsYXllcnMYCiADKAsyFS5HYW1l",
-            "UHJvdG8uUGxheWVySW5mbxIOCgZtYXN0ZXIYCyABKAUirgEKCUNsaWVudE1z",
-            "ZxIoCgR0eXBlGAEgASgOMhouR2FtZVByb3RvLkNsaWVudEV2ZW50Q29kZRIp",
-            "CgpwbGF5ZXJpbmZvGAIgASgLMhUuR2FtZVByb3RvLlBsYXllckluZm8SJQoF",
-            "aW5wdXQYAyABKAsyFi5HYW1lUHJvdG8uUGxheWVySW5wdXQSJQoIcm9vbWlu",
-            "Zm8YBCABKAsyEy5HYW1lUHJvdG8uUm9vbUluZm8iggIKCVNlcnZlck1zZxIo",
-            "CgR0eXBlGAEgASgOMhouR2FtZVByb3RvLlNlcnZlckV2ZW50Q29kZRILCgNm",
-            "aWQYAiABKAUSCwoDc3RyGAMgASgJEikKCnBsYXllckluZm8YBCABKAsyFS5H",
-            "YW1lUHJvdG8uUGxheWVySW5mbxIOCgZmcmFtSUQYBSABKAUSJgoGaW5wdXRz",
-            "GAYgAygLMhYuR2FtZVByb3RvLlBsYXllcklucHV0EiYKBnN0YXRlcxgHIAMo",
-            "CzIWLkdhbWVQcm90by5QbGF5ZXJTdGF0ZRImCglyb29taW5mb3MYCCADKAsy",
-            "Ey5HYW1lUHJvdG8uUm9vbUluZm8q9AMKD1NlcnZlckV2ZW50Q29kZRIQCgxM",
-            "b2dJblN1Y2Nlc3MQABITCg9SZWdpc3RlclN1Y2Nlc3MQARIUChBFbnRlclJv",
-            "b21TdWNjZXNzEAISHwobTG9nSW5FcnJvcl9BY2NvdW50RG9udEV4aXN0EAMS",
-            "HAoYTG9nSW5FcnJvcl9QYXNzd29yZFdyb25nEAQSFgoSTG9nSW5FcnJvcl9S",
-            "ZUxvZ0luEAUSJQohUmVnaXN0ZXJFcnJvcl9BY2NvdW50QWxyZWFkeUV4aXN0",
-            "EAYSHAoYRW50ZXJSb29tRXJyb3JfRG9udExvZ0luEAcSHQoZRW50ZXJSb29t",
-            "RXJyb3JfUm9vbUlzRnVsbBAIEh8KG0VudGVyUm9vbUVycm9yX1Jvb21Eb250",
-            "RXhpdBAJEhEKDUludGVybmFsRXJyb3IQChIVChFCcm9hZFJvb21MaXN0SW5m",
-            "bxALEhEKDUJyb2FkUm9vbUluZm8QDBIWChJKdW1wVG9CYXR0bGVTZXJ2ZXIQ",
-            "DRILCgdTMkNTeW5jEA4SEwoPRXhpdFJvb21TdWNjZXNzEA8SGwoXRXhpdFJv",
-            "b21FcnJvcl9Eb250TG9nSW4QEBIdChlFeGl0Um9vbUVycm9yX1Jvb21Jc0Vt",
-            "cHR5EBESFQoRQ3JlYXRlUm9vbVN1Y2Nlc3MQEiqUAQoPQ2xpZW50RXZlbnRD",
-            "b2RlEgkKBUxvZ0luEAASCgoGUmVnaXN0EAESDgoKQ3JlYXRlUm9vbRACEg0K",
-            "CUVudGVyUm9vbRADEgwKCEV4aXRSb29tEAQSCwoHQzJTU3luYxAFEgoKBkZv",
-            "bGxvdxAGEhUKEUNoYW5nZVN0YXRlSW5Sb29tEAcSDQoJU3RhcnRHYW1lEAhi",
-            "BnByb3RvMw=="));
+            "eBgBIAEoAhIJCgF5GAIgASgCEgkKAXoYAyABKAIihwEKClBsYXllckluZm8S",
+            "CwoDdWlkGAEgASgFEg8KB2FjY291bnQYAiABKAkSEAoIcGFzc3dvcmQYAyAB",
+            "KAkSEAoIbmlja25hbWUYBCABKAkSDgoGcm9vbWlkGAUgASgFEhUKDWNoYXJh",
+            "Y3Rlck5hbWUYBiABKAkSEAoIcHJlcGFyZWQYByABKAgiZgoLUGxheWVyU3Rh",
+            "dGUSCwoDZmlkGAEgASgFEgwKBG5hbWUYAiABKAkSCwoDeWF3GAMgASgCEiAK",
+            "A3BvcxgEIAEoCzITLkdhbWVQcm90by5Qb3NpdGlvbhINCgVzdGF0ZRgFIAEo",
+            "BSKmAQoLUGxheWVySW5wdXQSCwoDdWlkGAEgASgFEhQKDGhlYWRUb3dhcmRz",
+            "WBgCIAEoAxIUCgxoZWFkVG93YXJkc1kYAyABKAMSFAoMaGVhZFRvd2FyZHNa",
+            "GAQgASgDEhYKDm1vdmVEaXJlY3Rpb25YGAUgASgDEhYKDm1vdmVEaXJlY3Rp",
+            "b25ZGAYgASgDEhgKEHVzZVByb3BzSW5QYWNrSUQYByABKAUi2AEKCFJvb21J",
+            "bmZvEgoKAmlkGAEgASgFEhEKCXJvdW5kVGltZRgCIAEoBRITCgtyb3VuZE51",
+            "bWJlchgDIAEoBRIQCghyb29tTmFtZRgEIAEoCRIPCgdtYXBOYW1lGAUgASgJ",
+            "EhAKCHBhc3N3b3JkGAYgASgJEhIKCm1heFBsYXllcnMYByABKAUSFwoPY3Vy",
+            "UGxheWVyTnVtYmVyGAggASgFEiYKB1BsYXllcnMYCSADKAsyFS5HYW1lUHJv",
+            "dG8uUGxheWVySW5mbxIOCgZtYXN0ZXIYCiABKAUirgEKCUNsaWVudE1zZxIo",
+            "CgR0eXBlGAEgASgOMhouR2FtZVByb3RvLkNsaWVudEV2ZW50Q29kZRIpCgpw",
+            "bGF5ZXJpbmZvGAIgASgLMhUuR2FtZVByb3RvLlBsYXllckluZm8SJQoFaW5w",
+            "dXQYAyABKAsyFi5HYW1lUHJvdG8uUGxheWVySW5wdXQSJQoIcm9vbWluZm8Y",
+            "BCABKAsyEy5HYW1lUHJvdG8uUm9vbUluZm8inAIKCVNlcnZlck1zZxIoCgR0",
+            "eXBlGAEgASgOMhouR2FtZVByb3RvLlNlcnZlckV2ZW50Q29kZRILCgNmaWQY",
+            "AiABKAUSCwoDc3RyGAMgASgJEgoKAmlwGAQgASgJEgwKBHBvcnQYBSABKAUS",
+            "KQoKcGxheWVySW5mbxgGIAEoCzIVLkdhbWVQcm90by5QbGF5ZXJJbmZvEg4K",
+            "BmZyYW1JRBgHIAEoBRImCgZpbnB1dHMYCCADKAsyFi5HYW1lUHJvdG8uUGxh",
+            "eWVySW5wdXQSJgoGc3RhdGVzGAkgAygLMhYuR2FtZVByb3RvLlBsYXllclN0",
+            "YXRlEiYKCXJvb21pbmZvcxgKIAMoCzITLkdhbWVQcm90by5Sb29tSW5mbyqg",
+            "BAoPU2VydmVyRXZlbnRDb2RlEhAKDExvZ0luU3VjY2VzcxAAEhMKD1JlZ2lz",
+            "dGVyU3VjY2VzcxABEhQKEEVudGVyUm9vbVN1Y2Nlc3MQAhIfChtMb2dJbkVy",
+            "cm9yX0FjY291bnREb250RXhpc3QQAxIcChhMb2dJbkVycm9yX1Bhc3N3b3Jk",
+            "V3JvbmcQBBIWChJMb2dJbkVycm9yX1JlTG9nSW4QBRIlCiFSZWdpc3RlckVy",
+            "cm9yX0FjY291bnRBbHJlYWR5RXhpc3QQBhIcChhFbnRlclJvb21FcnJvcl9E",
+            "b250TG9nSW4QBxIdChlFbnRlclJvb21FcnJvcl9Sb29tSXNGdWxsEAgSHwob",
+            "RW50ZXJSb29tRXJyb3JfUm9vbURvbnRFeGl0EAkSEQoNSW50ZXJuYWxFcnJv",
+            "chAKEhUKEUJyb2FkUm9vbUxpc3RJbmZvEAsSEQoNQnJvYWRSb29tSW5mbxAM",
+            "EhYKEkp1bXBUb0JhdHRsZVNlcnZlchANEgsKB1MyQ1N5bmMQDhITCg9FeGl0",
+            "Um9vbVN1Y2Nlc3MQDxIbChdFeGl0Um9vbUVycm9yX0RvbnRMb2dJbhAQEh0K",
+            "GUV4aXRSb29tRXJyb3JfUm9vbUlzRW1wdHkQERIVChFDcmVhdGVSb29tU3Vj",
+            "Y2VzcxASEhQKEFN0YXJ0R2FtZUZhaWx1cmUQExIUChBTdGFydEdhbWVTdWNj",
+            "ZXNzEBQqlAEKD0NsaWVudEV2ZW50Q29kZRIJCgVMb2dJbhAAEgoKBlJlZ2lz",
+            "dBABEg4KCkNyZWF0ZVJvb20QAhINCglFbnRlclJvb20QAxIMCghFeGl0Um9v",
+            "bRAEEgsKB0MyU1N5bmMQBRIKCgZGb2xsb3cQBhIVChFDaGFuZ2VTdGF0ZUlu",
+            "Um9vbRAHEg0KCVN0YXJ0R2FtZRAIYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::GameProto.ServerEventCode), typeof(global::GameProto.ClientEventCode), }, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::GameProto.Position), global::GameProto.Position.Parser, new[]{ "X", "Y", "Z" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::GameProto.PlayerInfo), global::GameProto.PlayerInfo.Parser, new[]{ "Uid", "Account", "Password", "Nickname", "Roomid" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::GameProto.PlayerInfo), global::GameProto.PlayerInfo.Parser, new[]{ "Uid", "Account", "Password", "Nickname", "Roomid", "CharacterName", "Prepared" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GameProto.PlayerState), global::GameProto.PlayerState.Parser, new[]{ "Fid", "Name", "Yaw", "Pos", "State" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::GameProto.PlayerInput), global::GameProto.PlayerInput.Parser, new[]{ "HeadTowardsX", "HeadTowardsY", "HeadTowardsZ", "MoveDirectionX", "MoveDirectionY", "UsePropsInPackID" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::GameProto.RoomInfo), global::GameProto.RoomInfo.Parser, new[]{ "Id", "RoundTime", "RoundNumber", "RoomName", "MapName", "Password", "MaxPlayers", "CurPlayerNumber", "PreparedPlayers", "UnPreparedPlayers", "Master" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::GameProto.PlayerInput), global::GameProto.PlayerInput.Parser, new[]{ "Uid", "HeadTowardsX", "HeadTowardsY", "HeadTowardsZ", "MoveDirectionX", "MoveDirectionY", "UsePropsInPackID" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::GameProto.RoomInfo), global::GameProto.RoomInfo.Parser, new[]{ "Id", "RoundTime", "RoundNumber", "RoomName", "MapName", "Password", "MaxPlayers", "CurPlayerNumber", "Players", "Master" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::GameProto.ClientMsg), global::GameProto.ClientMsg.Parser, new[]{ "Type", "Playerinfo", "Input", "Roominfo" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::GameProto.ServerMsg), global::GameProto.ServerMsg.Parser, new[]{ "Type", "Fid", "Str", "PlayerInfo", "FramID", "Inputs", "States", "Roominfos" }, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::GameProto.ServerMsg), global::GameProto.ServerMsg.Parser, new[]{ "Type", "Fid", "Str", "Ip", "Port", "PlayerInfo", "FramID", "Inputs", "States", "Roominfos" }, null, null, null)
           }));
     }
     #endregion
@@ -82,7 +83,7 @@ namespace GameProto {
   }
   #region Enums
   /// <summary>
-  ///S2Cï¿½Â¼ï¿½ï¿½ï¿½
+  ///S2CÊÂ¼þÂë
   /// </summary>
   public enum ServerEventCode {
     [pbr::OriginalName("LogInSuccess")] LogInSuccess = 0,
@@ -104,10 +105,12 @@ namespace GameProto {
     [pbr::OriginalName("ExitRoomError_DontLogIn")] ExitRoomErrorDontLogIn = 16,
     [pbr::OriginalName("ExitRoomError_RoomIsEmpty")] ExitRoomErrorRoomIsEmpty = 17,
     [pbr::OriginalName("CreateRoomSuccess")] CreateRoomSuccess = 18,
+    [pbr::OriginalName("StartGameFailure")] StartGameFailure = 19,
+    [pbr::OriginalName("StartGameSuccess")] StartGameSuccess = 20,
   }
 
   /// <summary>
-  ///C2Sï¿½Â¼ï¿½ï¿½ï¿½
+  ///C2SÊÂ¼þÂë
   /// </summary>
   public enum ClientEventCode {
     [pbr::OriginalName("LogIn")] LogIn = 0,
@@ -310,7 +313,7 @@ namespace GameProto {
   }
 
   /// <summary>
-  ///ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
+  ///Íæ¼ÒÐÅÏ¢
   /// </summary>
   public sealed partial class PlayerInfo : pb::IMessage<PlayerInfo> {
     private static readonly pb::MessageParser<PlayerInfo> _parser = new pb::MessageParser<PlayerInfo>(() => new PlayerInfo());
@@ -342,6 +345,8 @@ namespace GameProto {
       password_ = other.password_;
       nickname_ = other.nickname_;
       roomid_ = other.roomid_;
+      characterName_ = other.characterName_;
+      prepared_ = other.prepared_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -397,14 +402,36 @@ namespace GameProto {
     /// <summary>Field number for the "roomid" field.</summary>
     public const int RoomidFieldNumber = 5;
     private int roomid_;
-    /// <summary>
-    ///ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
-    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int Roomid {
       get { return roomid_; }
       set {
         roomid_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "characterName" field.</summary>
+    public const int CharacterNameFieldNumber = 6;
+    private string characterName_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string CharacterName {
+      get { return characterName_; }
+      set {
+        characterName_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "prepared" field.</summary>
+    public const int PreparedFieldNumber = 7;
+    private bool prepared_;
+    /// <summary>
+    ///ºóÐøÌí¼Ó
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Prepared {
+      get { return prepared_; }
+      set {
+        prepared_ = value;
       }
     }
 
@@ -426,6 +453,8 @@ namespace GameProto {
       if (Password != other.Password) return false;
       if (Nickname != other.Nickname) return false;
       if (Roomid != other.Roomid) return false;
+      if (CharacterName != other.CharacterName) return false;
+      if (Prepared != other.Prepared) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -437,6 +466,8 @@ namespace GameProto {
       if (Password.Length != 0) hash ^= Password.GetHashCode();
       if (Nickname.Length != 0) hash ^= Nickname.GetHashCode();
       if (Roomid != 0) hash ^= Roomid.GetHashCode();
+      if (CharacterName.Length != 0) hash ^= CharacterName.GetHashCode();
+      if (Prepared != false) hash ^= Prepared.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -470,6 +501,14 @@ namespace GameProto {
         output.WriteRawTag(40);
         output.WriteInt32(Roomid);
       }
+      if (CharacterName.Length != 0) {
+        output.WriteRawTag(50);
+        output.WriteString(CharacterName);
+      }
+      if (Prepared != false) {
+        output.WriteRawTag(56);
+        output.WriteBool(Prepared);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -492,6 +531,12 @@ namespace GameProto {
       }
       if (Roomid != 0) {
         size += 1 + pb::CodedOutputStream.ComputeInt32Size(Roomid);
+      }
+      if (CharacterName.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(CharacterName);
+      }
+      if (Prepared != false) {
+        size += 1 + 1;
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -518,6 +563,12 @@ namespace GameProto {
       }
       if (other.Roomid != 0) {
         Roomid = other.Roomid;
+      }
+      if (other.CharacterName.Length != 0) {
+        CharacterName = other.CharacterName;
+      }
+      if (other.Prepared != false) {
+        Prepared = other.Prepared;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -550,6 +601,14 @@ namespace GameProto {
             Roomid = input.ReadInt32();
             break;
           }
+          case 50: {
+            CharacterName = input.ReadString();
+            break;
+          }
+          case 56: {
+            Prepared = input.ReadBool();
+            break;
+          }
         }
       }
     }
@@ -557,7 +616,7 @@ namespace GameProto {
   }
 
   /// <summary>
-  ///ï¿½ï¿½ï¿½×´Ì¬
+  ///Íæ¼Ò×´Ì¬
   /// </summary>
   public sealed partial class PlayerState : pb::IMessage<PlayerState> {
     private static readonly pb::MessageParser<PlayerState> _parser = new pb::MessageParser<PlayerState>(() => new PlayerState());
@@ -807,7 +866,7 @@ namespace GameProto {
   }
 
   /// <summary>
-  ///ï¿½ï¿½ï¿½Ò»ï¿½Î²ï¿½ï¿½ï¿½
+  ///Íæ¼ÒÒ»´Î²Ù×÷
   /// </summary>
   public sealed partial class PlayerInput : pb::IMessage<PlayerInput> {
     private static readonly pb::MessageParser<PlayerInput> _parser = new pb::MessageParser<PlayerInput>(() => new PlayerInput());
@@ -834,6 +893,7 @@ namespace GameProto {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public PlayerInput(PlayerInput other) : this() {
+      uid_ = other.uid_;
       headTowardsX_ = other.headTowardsX_;
       headTowardsY_ = other.headTowardsY_;
       headTowardsZ_ = other.headTowardsZ_;
@@ -848,11 +908,22 @@ namespace GameProto {
       return new PlayerInput(this);
     }
 
+    /// <summary>Field number for the "uid" field.</summary>
+    public const int UidFieldNumber = 1;
+    private int uid_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int Uid {
+      get { return uid_; }
+      set {
+        uid_ = value;
+      }
+    }
+
     /// <summary>Field number for the "headTowardsX" field.</summary>
-    public const int HeadTowardsXFieldNumber = 1;
+    public const int HeadTowardsXFieldNumber = 2;
     private long headTowardsX_;
     /// <summary>
-    ///ï¿½ï¿½ï¿½Í·(ï¿½Ó½ï¿½)ï¿½ï¿½ï¿½ï¿½
+    ///Íæ¼ÒÍ·(ÊÓ½Ç)³¯Ïò
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public long HeadTowardsX {
@@ -863,7 +934,7 @@ namespace GameProto {
     }
 
     /// <summary>Field number for the "headTowardsY" field.</summary>
-    public const int HeadTowardsYFieldNumber = 2;
+    public const int HeadTowardsYFieldNumber = 3;
     private long headTowardsY_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public long HeadTowardsY {
@@ -874,7 +945,7 @@ namespace GameProto {
     }
 
     /// <summary>Field number for the "headTowardsZ" field.</summary>
-    public const int HeadTowardsZFieldNumber = 3;
+    public const int HeadTowardsZFieldNumber = 4;
     private long headTowardsZ_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public long HeadTowardsZ {
@@ -885,10 +956,10 @@ namespace GameProto {
     }
 
     /// <summary>Field number for the "moveDirectionX" field.</summary>
-    public const int MoveDirectionXFieldNumber = 4;
+    public const int MoveDirectionXFieldNumber = 5;
     private long moveDirectionX_;
     /// <summary>
-    ///ï¿½ï¿½ï¿½ï¿½Æ¶ï¿½ï¿½Ù¶ï¿½
+    ///Íæ¼ÒÒÆ¶¯ËÙ¶È
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public long MoveDirectionX {
@@ -899,7 +970,7 @@ namespace GameProto {
     }
 
     /// <summary>Field number for the "moveDirectionY" field.</summary>
-    public const int MoveDirectionYFieldNumber = 5;
+    public const int MoveDirectionYFieldNumber = 6;
     private long moveDirectionY_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public long MoveDirectionY {
@@ -910,10 +981,10 @@ namespace GameProto {
     }
 
     /// <summary>Field number for the "usePropsInPackID" field.</summary>
-    public const int UsePropsInPackIDFieldNumber = 6;
+    public const int UsePropsInPackIDFieldNumber = 7;
     private int usePropsInPackID_;
     /// <summary>
-    ///Ê¹ï¿½ÃµÄµï¿½ï¿½ï¿½ï¿½Ú±ï¿½ï¿½ï¿½ï¿½Ðµï¿½ID   ï¿½ï¿½ï¿½ï¿½Ò²ï¿½Çµï¿½ï¿½ï¿½
+    ///Ê¹ÓÃµÄµÀ¾ßÔÚ±³°üÖÐµÄID   ¼¼ÄÜÒ²ÊÇµÀ¾ß
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int UsePropsInPackID {
@@ -936,6 +1007,7 @@ namespace GameProto {
       if (ReferenceEquals(other, this)) {
         return true;
       }
+      if (Uid != other.Uid) return false;
       if (HeadTowardsX != other.HeadTowardsX) return false;
       if (HeadTowardsY != other.HeadTowardsY) return false;
       if (HeadTowardsZ != other.HeadTowardsZ) return false;
@@ -948,6 +1020,7 @@ namespace GameProto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override int GetHashCode() {
       int hash = 1;
+      if (Uid != 0) hash ^= Uid.GetHashCode();
       if (HeadTowardsX != 0L) hash ^= HeadTowardsX.GetHashCode();
       if (HeadTowardsY != 0L) hash ^= HeadTowardsY.GetHashCode();
       if (HeadTowardsZ != 0L) hash ^= HeadTowardsZ.GetHashCode();
@@ -967,28 +1040,32 @@ namespace GameProto {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void WriteTo(pb::CodedOutputStream output) {
-      if (HeadTowardsX != 0L) {
+      if (Uid != 0) {
         output.WriteRawTag(8);
+        output.WriteInt32(Uid);
+      }
+      if (HeadTowardsX != 0L) {
+        output.WriteRawTag(16);
         output.WriteInt64(HeadTowardsX);
       }
       if (HeadTowardsY != 0L) {
-        output.WriteRawTag(16);
+        output.WriteRawTag(24);
         output.WriteInt64(HeadTowardsY);
       }
       if (HeadTowardsZ != 0L) {
-        output.WriteRawTag(24);
+        output.WriteRawTag(32);
         output.WriteInt64(HeadTowardsZ);
       }
       if (MoveDirectionX != 0L) {
-        output.WriteRawTag(32);
+        output.WriteRawTag(40);
         output.WriteInt64(MoveDirectionX);
       }
       if (MoveDirectionY != 0L) {
-        output.WriteRawTag(40);
+        output.WriteRawTag(48);
         output.WriteInt64(MoveDirectionY);
       }
       if (UsePropsInPackID != 0) {
-        output.WriteRawTag(48);
+        output.WriteRawTag(56);
         output.WriteInt32(UsePropsInPackID);
       }
       if (_unknownFields != null) {
@@ -999,6 +1076,9 @@ namespace GameProto {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int CalculateSize() {
       int size = 0;
+      if (Uid != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(Uid);
+      }
       if (HeadTowardsX != 0L) {
         size += 1 + pb::CodedOutputStream.ComputeInt64Size(HeadTowardsX);
       }
@@ -1027,6 +1107,9 @@ namespace GameProto {
     public void MergeFrom(PlayerInput other) {
       if (other == null) {
         return;
+      }
+      if (other.Uid != 0) {
+        Uid = other.Uid;
       }
       if (other.HeadTowardsX != 0L) {
         HeadTowardsX = other.HeadTowardsX;
@@ -1058,26 +1141,30 @@ namespace GameProto {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
           case 8: {
-            HeadTowardsX = input.ReadInt64();
+            Uid = input.ReadInt32();
             break;
           }
           case 16: {
-            HeadTowardsY = input.ReadInt64();
+            HeadTowardsX = input.ReadInt64();
             break;
           }
           case 24: {
-            HeadTowardsZ = input.ReadInt64();
+            HeadTowardsY = input.ReadInt64();
             break;
           }
           case 32: {
-            MoveDirectionX = input.ReadInt64();
+            HeadTowardsZ = input.ReadInt64();
             break;
           }
           case 40: {
-            MoveDirectionY = input.ReadInt64();
+            MoveDirectionX = input.ReadInt64();
             break;
           }
           case 48: {
+            MoveDirectionY = input.ReadInt64();
+            break;
+          }
+          case 56: {
             UsePropsInPackID = input.ReadInt32();
             break;
           }
@@ -1088,16 +1175,16 @@ namespace GameProto {
   }
 
   /// <summary>
-  ///ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
-  ///ï¿½ï¿½ï¿½ï¿½id 
-  ///Ã¿ï¿½ï¿½Ê±ï¿½ï¿½
-  ///ï¿½ï¿½ï¿½ï¿½
-  ///ï¿½ï¿½Í¼ï¿½ï¿½
-  ///ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
-  ///ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
-  ///×¼ï¿½ï¿½ï¿½Ðµï¿½ï¿½ï¿½ï¿½
-  ///Î´×¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
-  ///ï¿½ï¿½ï¿½ï¿½
+  ///·¿¼äÐÅÏ¢
+  ///·¿¼äid 
+  ///Ã¿¾ÖÊ±¼ä
+  ///¾ÖÊý
+  ///µØÍ¼Ãû
+  ///·¿¼äÃÜÂë
+  ///×î´óÍæ¼ÒÊýÁ¿
+  ///×¼±¸ÖÐµÄÍæ¼Ò
+  ///Î´×¼±¸µÄÍæ¼Ò
+  ///·¿Ö÷
   /// </summary>
   public sealed partial class RoomInfo : pb::IMessage<RoomInfo> {
     private static readonly pb::MessageParser<RoomInfo> _parser = new pb::MessageParser<RoomInfo>(() => new RoomInfo());
@@ -1132,8 +1219,7 @@ namespace GameProto {
       password_ = other.password_;
       maxPlayers_ = other.maxPlayers_;
       curPlayerNumber_ = other.curPlayerNumber_;
-      preparedPlayers_ = other.preparedPlayers_.Clone();
-      unPreparedPlayers_ = other.unPreparedPlayers_.Clone();
+      players_ = other.players_.Clone();
       master_ = other.master_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
@@ -1231,28 +1317,18 @@ namespace GameProto {
       }
     }
 
-    /// <summary>Field number for the "preparedPlayers" field.</summary>
-    public const int PreparedPlayersFieldNumber = 9;
-    private static readonly pb::FieldCodec<global::GameProto.PlayerInfo> _repeated_preparedPlayers_codec
+    /// <summary>Field number for the "Players" field.</summary>
+    public const int PlayersFieldNumber = 9;
+    private static readonly pb::FieldCodec<global::GameProto.PlayerInfo> _repeated_players_codec
         = pb::FieldCodec.ForMessage(74, global::GameProto.PlayerInfo.Parser);
-    private readonly pbc::RepeatedField<global::GameProto.PlayerInfo> preparedPlayers_ = new pbc::RepeatedField<global::GameProto.PlayerInfo>();
+    private readonly pbc::RepeatedField<global::GameProto.PlayerInfo> players_ = new pbc::RepeatedField<global::GameProto.PlayerInfo>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public pbc::RepeatedField<global::GameProto.PlayerInfo> PreparedPlayers {
-      get { return preparedPlayers_; }
-    }
-
-    /// <summary>Field number for the "unPreparedPlayers" field.</summary>
-    public const int UnPreparedPlayersFieldNumber = 10;
-    private static readonly pb::FieldCodec<global::GameProto.PlayerInfo> _repeated_unPreparedPlayers_codec
-        = pb::FieldCodec.ForMessage(82, global::GameProto.PlayerInfo.Parser);
-    private readonly pbc::RepeatedField<global::GameProto.PlayerInfo> unPreparedPlayers_ = new pbc::RepeatedField<global::GameProto.PlayerInfo>();
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public pbc::RepeatedField<global::GameProto.PlayerInfo> UnPreparedPlayers {
-      get { return unPreparedPlayers_; }
+    public pbc::RepeatedField<global::GameProto.PlayerInfo> Players {
+      get { return players_; }
     }
 
     /// <summary>Field number for the "master" field.</summary>
-    public const int MasterFieldNumber = 11;
+    public const int MasterFieldNumber = 10;
     private int master_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int Master {
@@ -1283,8 +1359,7 @@ namespace GameProto {
       if (Password != other.Password) return false;
       if (MaxPlayers != other.MaxPlayers) return false;
       if (CurPlayerNumber != other.CurPlayerNumber) return false;
-      if(!preparedPlayers_.Equals(other.preparedPlayers_)) return false;
-      if(!unPreparedPlayers_.Equals(other.unPreparedPlayers_)) return false;
+      if(!players_.Equals(other.players_)) return false;
       if (Master != other.Master) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
@@ -1300,8 +1375,7 @@ namespace GameProto {
       if (Password.Length != 0) hash ^= Password.GetHashCode();
       if (MaxPlayers != 0) hash ^= MaxPlayers.GetHashCode();
       if (CurPlayerNumber != 0) hash ^= CurPlayerNumber.GetHashCode();
-      hash ^= preparedPlayers_.GetHashCode();
-      hash ^= unPreparedPlayers_.GetHashCode();
+      hash ^= players_.GetHashCode();
       if (Master != 0) hash ^= Master.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
@@ -1348,10 +1422,9 @@ namespace GameProto {
         output.WriteRawTag(64);
         output.WriteInt32(CurPlayerNumber);
       }
-      preparedPlayers_.WriteTo(output, _repeated_preparedPlayers_codec);
-      unPreparedPlayers_.WriteTo(output, _repeated_unPreparedPlayers_codec);
+      players_.WriteTo(output, _repeated_players_codec);
       if (Master != 0) {
-        output.WriteRawTag(88);
+        output.WriteRawTag(80);
         output.WriteInt32(Master);
       }
       if (_unknownFields != null) {
@@ -1386,8 +1459,7 @@ namespace GameProto {
       if (CurPlayerNumber != 0) {
         size += 1 + pb::CodedOutputStream.ComputeInt32Size(CurPlayerNumber);
       }
-      size += preparedPlayers_.CalculateSize(_repeated_preparedPlayers_codec);
-      size += unPreparedPlayers_.CalculateSize(_repeated_unPreparedPlayers_codec);
+      size += players_.CalculateSize(_repeated_players_codec);
       if (Master != 0) {
         size += 1 + pb::CodedOutputStream.ComputeInt32Size(Master);
       }
@@ -1426,8 +1498,7 @@ namespace GameProto {
       if (other.CurPlayerNumber != 0) {
         CurPlayerNumber = other.CurPlayerNumber;
       }
-      preparedPlayers_.Add(other.preparedPlayers_);
-      unPreparedPlayers_.Add(other.unPreparedPlayers_);
+      players_.Add(other.players_);
       if (other.Master != 0) {
         Master = other.Master;
       }
@@ -1475,14 +1546,10 @@ namespace GameProto {
             break;
           }
           case 74: {
-            preparedPlayers_.AddEntriesFrom(input, _repeated_preparedPlayers_codec);
+            players_.AddEntriesFrom(input, _repeated_players_codec);
             break;
           }
-          case 82: {
-            unPreparedPlayers_.AddEntriesFrom(input, _repeated_unPreparedPlayers_codec);
-            break;
-          }
-          case 88: {
+          case 80: {
             Master = input.ReadInt32();
             break;
           }
@@ -1493,12 +1560,13 @@ namespace GameProto {
   }
 
   /// <summary>
-  ///ï¿½Í»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ý°ï¿½
-  ///ï¿½ï¿½Â¼ï¿½ï¿½type=LogIn,playerinfo(account, password)
-  ///×¢ï¿½á£ºtype=Regist,playerinfo(account, password, nickname)
-  ///ï¿½ï¿½ï¿½ï¿½ï¿½ä£ºtype=EnterRoom, playerInfo(uid),id=room_id
-  ///Í¬ï¿½ï¿½ï¿½ï¿½type=Sync,input
-  ///×·Ö¡ï¿½ï¿½type=Follow, playerinfo(uid),id=fid
+  ///¿Í»§¶ËÊý¾Ý°ü
+  ///µÇÂ¼£ºtype=LogIn,playerinfo(account, password)
+  ///×¢²á£ºtype=Regist,playerinfo(account, password, nickname)
+  ///½ø·¿¼ä£ºtype=EnterRoom, playerInfo(uid),id=room_id
+  ///Ñ¡Ôñ½ÇÉ«: type=SelectCharacter, playerInfo(uid, characterId)
+  ///Í¬²½£ºtype=Sync,input
+  ///×·Ö¡£ºtype=Follow, playerinfo(uid),id=fid
   /// </summary>
   public sealed partial class ClientMsg : pb::IMessage<ClientMsg> {
     private static readonly pb::MessageParser<ClientMsg> _parser = new pb::MessageParser<ClientMsg>(() => new ClientMsg());
@@ -1732,13 +1800,13 @@ namespace GameProto {
   }
 
   /// <summary>
-  ///ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ý°ï¿½
-  ///ï¿½ï¿½Â¼ï¿½É¹ï¿½ï¿½ï¿½type = LogInSuccess playerinfo(), roominfos
-  ///×¢ï¿½ï¿½É¹ï¿½ï¿½ï¿½type = RegistSuccess 
-  ///ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É¹ï¿½ï¿½ï¿½type = EnterRoomSuccess, roominfos
-  ///ï¿½ï¿½Â¼ï¿½ï¿½×¢ï¿½á£¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê§ï¿½Ü£ï¿½type=Failure,str
-  ///ï¿½ï¿½×ªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: type=JumpToBattleServer,str=ip:port
-  ///Í¬ï¿½ï¿½ï¿½ï¿½type = Sync,fid,inputs,(states?)
+  ///·þÎñÆ÷Êý¾Ý°ü
+  ///µÇÂ¼³É¹¦£ºtype = LogInSuccess playerinfo(), roominfos
+  ///×¢²á³É¹¦£ºtype = RegistSuccess 
+  ///½ø·¿¼ä³É¹¦£ºtype = EnterRoomSuccess, roominfos
+  ///µÇÂ¼£¬×¢²á£¬½ø·¿¼äÊ§°Ü£ºtype=Failure,str
+  ///Ìø×ª·þÎñÆ÷: type=JumpToBattleServer,str=ip:port
+  ///Í¬²½£ºtype = Sync,fid,inputs,(states?)
   /// </summary>
   public sealed partial class ServerMsg : pb::IMessage<ServerMsg> {
     private static readonly pb::MessageParser<ServerMsg> _parser = new pb::MessageParser<ServerMsg>(() => new ServerMsg());
@@ -1768,6 +1836,8 @@ namespace GameProto {
       type_ = other.type_;
       fid_ = other.fid_;
       str_ = other.str_;
+      ip_ = other.ip_;
+      port_ = other.port_;
       PlayerInfo = other.playerInfo_ != null ? other.PlayerInfo.Clone() : null;
       framID_ = other.framID_;
       inputs_ = other.inputs_.Clone();
@@ -1814,8 +1884,30 @@ namespace GameProto {
       }
     }
 
+    /// <summary>Field number for the "ip" field.</summary>
+    public const int IpFieldNumber = 4;
+    private string ip_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string Ip {
+      get { return ip_; }
+      set {
+        ip_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "port" field.</summary>
+    public const int PortFieldNumber = 5;
+    private int port_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int Port {
+      get { return port_; }
+      set {
+        port_ = value;
+      }
+    }
+
     /// <summary>Field number for the "playerInfo" field.</summary>
-    public const int PlayerInfoFieldNumber = 4;
+    public const int PlayerInfoFieldNumber = 6;
     private global::GameProto.PlayerInfo playerInfo_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public global::GameProto.PlayerInfo PlayerInfo {
@@ -1826,7 +1918,7 @@ namespace GameProto {
     }
 
     /// <summary>Field number for the "framID" field.</summary>
-    public const int FramIDFieldNumber = 5;
+    public const int FramIDFieldNumber = 7;
     private int framID_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int FramID {
@@ -1837,9 +1929,9 @@ namespace GameProto {
     }
 
     /// <summary>Field number for the "inputs" field.</summary>
-    public const int InputsFieldNumber = 6;
+    public const int InputsFieldNumber = 8;
     private static readonly pb::FieldCodec<global::GameProto.PlayerInput> _repeated_inputs_codec
-        = pb::FieldCodec.ForMessage(50, global::GameProto.PlayerInput.Parser);
+        = pb::FieldCodec.ForMessage(66, global::GameProto.PlayerInput.Parser);
     private readonly pbc::RepeatedField<global::GameProto.PlayerInput> inputs_ = new pbc::RepeatedField<global::GameProto.PlayerInput>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public pbc::RepeatedField<global::GameProto.PlayerInput> Inputs {
@@ -1847,9 +1939,9 @@ namespace GameProto {
     }
 
     /// <summary>Field number for the "states" field.</summary>
-    public const int StatesFieldNumber = 7;
+    public const int StatesFieldNumber = 9;
     private static readonly pb::FieldCodec<global::GameProto.PlayerState> _repeated_states_codec
-        = pb::FieldCodec.ForMessage(58, global::GameProto.PlayerState.Parser);
+        = pb::FieldCodec.ForMessage(74, global::GameProto.PlayerState.Parser);
     private readonly pbc::RepeatedField<global::GameProto.PlayerState> states_ = new pbc::RepeatedField<global::GameProto.PlayerState>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public pbc::RepeatedField<global::GameProto.PlayerState> States {
@@ -1857,9 +1949,9 @@ namespace GameProto {
     }
 
     /// <summary>Field number for the "roominfos" field.</summary>
-    public const int RoominfosFieldNumber = 8;
+    public const int RoominfosFieldNumber = 10;
     private static readonly pb::FieldCodec<global::GameProto.RoomInfo> _repeated_roominfos_codec
-        = pb::FieldCodec.ForMessage(66, global::GameProto.RoomInfo.Parser);
+        = pb::FieldCodec.ForMessage(82, global::GameProto.RoomInfo.Parser);
     private readonly pbc::RepeatedField<global::GameProto.RoomInfo> roominfos_ = new pbc::RepeatedField<global::GameProto.RoomInfo>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public pbc::RepeatedField<global::GameProto.RoomInfo> Roominfos {
@@ -1882,6 +1974,8 @@ namespace GameProto {
       if (Type != other.Type) return false;
       if (Fid != other.Fid) return false;
       if (Str != other.Str) return false;
+      if (Ip != other.Ip) return false;
+      if (Port != other.Port) return false;
       if (!object.Equals(PlayerInfo, other.PlayerInfo)) return false;
       if (FramID != other.FramID) return false;
       if(!inputs_.Equals(other.inputs_)) return false;
@@ -1896,6 +1990,8 @@ namespace GameProto {
       if (Type != 0) hash ^= Type.GetHashCode();
       if (Fid != 0) hash ^= Fid.GetHashCode();
       if (Str.Length != 0) hash ^= Str.GetHashCode();
+      if (Ip.Length != 0) hash ^= Ip.GetHashCode();
+      if (Port != 0) hash ^= Port.GetHashCode();
       if (playerInfo_ != null) hash ^= PlayerInfo.GetHashCode();
       if (FramID != 0) hash ^= FramID.GetHashCode();
       hash ^= inputs_.GetHashCode();
@@ -1926,12 +2022,20 @@ namespace GameProto {
         output.WriteRawTag(26);
         output.WriteString(Str);
       }
-      if (playerInfo_ != null) {
+      if (Ip.Length != 0) {
         output.WriteRawTag(34);
+        output.WriteString(Ip);
+      }
+      if (Port != 0) {
+        output.WriteRawTag(40);
+        output.WriteInt32(Port);
+      }
+      if (playerInfo_ != null) {
+        output.WriteRawTag(50);
         output.WriteMessage(PlayerInfo);
       }
       if (FramID != 0) {
-        output.WriteRawTag(40);
+        output.WriteRawTag(56);
         output.WriteInt32(FramID);
       }
       inputs_.WriteTo(output, _repeated_inputs_codec);
@@ -1953,6 +2057,12 @@ namespace GameProto {
       }
       if (Str.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(Str);
+      }
+      if (Ip.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Ip);
+      }
+      if (Port != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(Port);
       }
       if (playerInfo_ != null) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(PlayerInfo);
@@ -1982,6 +2092,12 @@ namespace GameProto {
       }
       if (other.Str.Length != 0) {
         Str = other.Str;
+      }
+      if (other.Ip.Length != 0) {
+        Ip = other.Ip;
+      }
+      if (other.Port != 0) {
+        Port = other.Port;
       }
       if (other.playerInfo_ != null) {
         if (playerInfo_ == null) {
@@ -2019,25 +2135,33 @@ namespace GameProto {
             break;
           }
           case 34: {
+            Ip = input.ReadString();
+            break;
+          }
+          case 40: {
+            Port = input.ReadInt32();
+            break;
+          }
+          case 50: {
             if (playerInfo_ == null) {
               playerInfo_ = new global::GameProto.PlayerInfo();
             }
             input.ReadMessage(playerInfo_);
             break;
           }
-          case 40: {
+          case 56: {
             FramID = input.ReadInt32();
             break;
           }
-          case 50: {
+          case 66: {
             inputs_.AddEntriesFrom(input, _repeated_inputs_codec);
             break;
           }
-          case 58: {
+          case 74: {
             states_.AddEntriesFrom(input, _repeated_states_codec);
             break;
           }
-          case 66: {
+          case 82: {
             roominfos_.AddEntriesFrom(input, _repeated_roominfos_codec);
             break;
           }
